@@ -1,12 +1,11 @@
-import React from "react";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import { ErrorMessage, FieldContainer, FieldLabel } from "../../atoms";
-import { GroupWrapper } from "./styles";
-import { Props } from "./types";
-import { defaultProps } from "./defaultProps";
-import { useLogic } from "./useLogic";
+import FormGroup from '@mui/material/FormGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+import { ErrorMessage, FieldContainer, FieldLabel } from '../../atoms'
+import { GroupWrapper } from './styles'
+import { Props } from './types'
+import { defaultProps } from './defaultProps'
+import { useLogic } from './useLogic'
 
 const Index = ({
   name,
@@ -20,7 +19,7 @@ const Index = ({
   options,
   direction,
 }: Props) => {
-  const { handleChange } = useLogic({ options, onValueChange });
+  const { handleChange } = useLogic({ options, onValueChange })
 
   return (
     <FieldContainer isHidden={isHidden}>
@@ -40,9 +39,9 @@ const Index = ({
                 <Checkbox
                   name={option.label}
                   sx={{
-                    color: "#1D292E",
-                    "&.Mui-checked": {
-                      color: "#1D292E",
+                    color: '#1D292E',
+                    '&.Mui-checked': {
+                      color: '#1D292E',
                     },
                   }}
                 />
@@ -55,8 +54,8 @@ const Index = ({
 
       <ErrorMessage error={error} isTouched={isTouched} />
     </FieldContainer>
-  );
-};
-Index.defaultProps = defaultProps;
+  )
+}
+Index.defaultProps = defaultProps
 
-export default Index;
+export default Index

@@ -1,7 +1,7 @@
 import Index from './index'
 
 export default {
-  title: 'Fields/CheckboxGroup',
+  title: 'fields/RadioGroup',
   component: Index,
 }
 

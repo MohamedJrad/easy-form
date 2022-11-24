@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: true,
   experimental: {
-    transpilePackages: ["ui"],
+    transpilePackages: ["@med.jrad/react-form-fields", "react-dynamic-form"],
   },
 };

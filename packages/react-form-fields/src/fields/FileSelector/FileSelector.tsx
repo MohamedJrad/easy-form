@@ -1,22 +1,21 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { ReactNode } from "react";
-import Dropzone from "react-dropzone";
-import CircularProgress from "@mui/material/CircularProgress";
-import { ErrorMessage, FieldContainer, FieldLabel } from "../../atoms";
-import { useLogic } from "./useLogic";
+//import Dropzone from 'react-dropzone'
+//import CircularProgress from '@mui/material/CircularProgress'
+import { ErrorMessage, FieldContainer, FieldLabel } from '../../atoms'
+import { useLogic } from './useLogic'
 import {
-  DropArea,
-  UploadButton,
-  RemoveIcon,
+  //DropArea,
+  //UploadButton,
+  //RemoveIcon,
   Wrapper,
-  UploadIcon,
-  Info,
-  Text,
-  LoaderWrapper,
-  EyeIcon,
-} from "./styles";
-import { Props } from "./types";
-import { defaultProps } from "./defaultProps";
+  //UploadIcon,
+  //Info,
+  //Text,
+  //LoaderWrapper,
+  //EyeIcon,
+} from './styles'
+import { Props } from './types'
+import { defaultProps } from './defaultProps'
 
 const Index = ({
   label,
@@ -29,11 +28,13 @@ const Index = ({
   // disabled,
   error,
   onValueChange,
-  isLoading,
-  onEyeIconClicked,
+  // isLoading,
+  //onEyeIconClicked,
   isWithRequiredStar,
 }: Props) => {
-  const { onDrop, selectedFile, removeFile } = useLogic({ onValueChange });
+  const {
+    // onDrop, selectedFile, removeFile, handleEyeIconClick
+  } = useLogic(onValueChange)
 
   return (
     <FieldContainer>
@@ -43,50 +44,48 @@ const Index = ({
         isWithRequiredStar={isWithRequiredStar}
       />
       <Wrapper error={(isTouched && !!error) || false}>
-        <Dropzone onDrop={onDrop} maxFiles={1}>
+        {/* <Dropzone onDrop={onDrop} maxFiles={1}>
           {({ getRootProps, getInputProps }) => (
-            <DropArea {...getRootProps()}>
-              <input {...getInputProps()} />
-              <>
-                {!selectedFile && (
-                  <UploadButton>
-                    <UploadIcon />
-                  </UploadButton>
-                )}
-                {selectedFile && <RemoveIcon onClick={removeFile} />}
-              </>
-              <Info>
-                {isLoading && (
-                  <LoaderWrapper>
-                    <CircularProgress />
-                  </LoaderWrapper>
-                )}
-                {!isLoading && (
-                  <>
-                    {!selectedFile && <Text>{placeholder}</Text>}
-                    {selectedFile && <Text>{selectedFile?.name || ""}</Text>}
-                  </>
-                )}
-              </Info>
-              <div>
-                {!isLoading && selectedFile && !error && (
-                  <EyeIcon
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onEyeIconClicked();
-                    }}
-                  />
-                )}
-              </div>
-            </DropArea>
+            // <DropArea {...getRootProps()}>
+            //   <input {...getInputProps()} />
+            //   <>
+            //     {!selectedFile && (
+            //       <UploadButton>
+            //         <UploadIcon />
+            //       </UploadButton>
+            //     )}
+            //     {selectedFile && <RemoveIcon onClick={removeFile} />}
+            //   </>
+            //   <Info>
+            //     {isLoading && (
+            //       <LoaderWrapper>
+            //         <CircularProgress />
+            //       </LoaderWrapper>
+            //     )}
+            //     {!isLoading && (
+            //       <>
+            //         {!selectedFile && <Text>{placeholder}</Text>}
+            //         {selectedFile && <Text>{selectedFile?.name || ''}</Text>}
+            //       </>
+            //     )}
+            //   </Info>
+            //   <div>
+            //     {!isLoading && selectedFile && !error && (
+            //       <EyeIcon
+            //         onClick={(e) => handleEyeIconClick(e, onEyeIconClicked)}
+            //       />
+            //     )}
+            //   </div>
+            // </DropArea>
+            <div />
           )}
-        </Dropzone>
+        </Dropzone> */}
       </Wrapper>
       <ErrorMessage error={error} isTouched={isTouched} />
     </FieldContainer>
-  );
-};
+  )
+}
 
-Index.defaultProps = defaultProps;
+Index.defaultProps = defaultProps
 
-export default Index;
+export default Index

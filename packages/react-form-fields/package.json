@@ -1,14 +1,12 @@
 {
   "name": "@med.jrad/react-form-fields",
+  "private": true,
   "version": "0.0.0",
-  "license": "MIT",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
+  "type": "module",
   "scripts": {
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-open",
     "build-storybook": "build-storybook",
     "test": "vitest",
-    "coverage": "vitest run --coverage",
     "lint": "eslint --fix"
   },
   "dependencies": {
@@ -23,12 +21,9 @@
     "dayjs": "^1.11.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-dropzone": "^14.2.3",
-    "styled-components": "^5.3.6"
+    "react-dropzone": "^14.2.3"
   },
   "devDependencies": {
-    "tsconfig": "*",
-    "eslint-config-custom": "*",
     "@babel/core": "^7.20.2",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
@@ -41,28 +36,9 @@
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
     "babel-loader": "^8.3.0",
+    "jsdom": "^20.0.3",
     "typescript": "^4.6.4",
     "vite": "^3.2.3",
-    "vitest": "^0.25.3",
-    "@next/eslint-plugin-next": "^12.2.5",
-    "@storybook/addon-a11y": "^6.5.13",
-    "@storybook/addon-toolbars": "^6.5.12",
-    "@storybook/addon-viewport": "^6.5.12",
-    "@storybook/builder-webpack5": "^6.5.12",
-    "@storybook/jest": "^0.0.10",
-    "@storybook/manager-webpack5": "^6.5.12",
-    "@storybook/preset-create-react-app": "^4.0.0",
-    "@storybook/test-runner": "^0.7.2",
-    "@storybook/testing-react": "^1.3.0",
-    "@storybook/types": "^7.0.0-alpha.44",
-    "@stylelint/postcss-css-in-js": "^0.38.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/react-hooks": "^8.0.1",
-    "@testing-library/user-event": "^14.4.3",
-    "@types/node": "^18.7.23",
-    "@types/styled-components": "^5.1.26",
-    "@types/testing-library__jest-dom": "^5.14.5",
-    "@types/testing-library__react": "^10.2.0"
+    "vitest": "^0.25.3"
   }
 }

@@ -1,7 +1,6 @@
-import React from 'react'
 import { FieldLabel, ErrorMessage, FieldContainer } from '../../atoms'
 import { Props } from './types'
-//import { defaultProps } from './defaultProps'
+import { defaultProps } from './defaultProps'
 import { useLogic } from './useLogic'
 //import { StyledTextField, StyledPhoneInput } from './styles'
 
@@ -9,8 +8,6 @@ import { useLogic } from './useLogic'
 //import { TextField } from '@mui/material'
 
 const Index = ({
-  type,
-  name,
   label,
   placeholder,
   defaultValue,
@@ -26,12 +23,12 @@ const Index = ({
   isMultiline,
   minRows,
 }: Props) => {
-  const { handleChange } = useLogic({
-    type,
-    defaultValue,
-    maxLength,
-    onValueChange,
-  })
+  // const { handleChange } = useLogic({
+
+  //   defaultValue,
+  //   maxLength,
+  //   onValueChange,
+  // })
 
   return (
     <FieldContainer isHidden={isHidden}>
@@ -83,6 +80,6 @@ const Index = ({
   )
 }
 
-//Index.defaultProps = defaultProps
+Index.defaultProps = defaultProps
 
 export default Index
