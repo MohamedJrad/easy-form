@@ -7,10 +7,10 @@
     "storybook": "start-storybook -p 6006 --no-open",
     "build-storybook": "build-storybook",
     "test": "vitest",
+    "type-check": "vitest typecheck",
     "lint": "eslint \"src/**/*.+(ts|js|tsx|jsx)\" --fix",
     "test:staged": "vitest --bail --passWithNoTests",
     "format": "prettier \"src/**/*.+(ts|js|tsx)\" --write"
-
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -45,6 +45,7 @@
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@vitejs/plugin-react": "^2.2.0",
+    "@vitest/ui": "^0.25.3",
     "babel-loader": "^8.3.0",
     "eslint": "^8.23.0",
     "eslint-config-airbnb": "^19.0.4",

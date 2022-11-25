@@ -8,10 +8,10 @@
     "lint": {
       "outputs": []
     },
-        "test": {
+      "test": {
       "outputs": []
     },
-        "format": {
+    "format": {
       "outputs": []
     },
     "dev": {
