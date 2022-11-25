@@ -41,10 +41,10 @@
 
 // Index.defaultProps = defaultProps;
 // export default Index;
-import React from 'react'
+import React from "react";
 
 const DynamicForm = () => {
-  return <div>DynamicForm</div>
-}
+  return <div>DynamicForm</div>;
+};
 
-export default DynamicForm
+export default DynamicForm;

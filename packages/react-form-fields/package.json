@@ -9,7 +9,8 @@
     "test": "vitest",
     "lint": "eslint \"src/**/*.+(ts|js|tsx|jsx)\" --fix",
     "test:staged": "vitest --bail --passWithNoTests",
- "commit": "git add . && cz"
+    "format": "prettier \"src/**/*.+(ts|js|tsx)\" --write",
+    "commit": "git add . && cz"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",

@@ -1,6 +1,6 @@
 //import Input from '../../../packages/react-form-fields'
 //import DynamicForm from 'react-dynamic-form'
-import { Input, FileSelector } from '@med.jrad/react-form-fields'
+import { Input, FileSelector } from "@med.jrad/react-form-fields";
 export default function Docs() {
   return (
     <div>
@@ -11,5 +11,5 @@ export default function Docs() {
 
       {/* <DynamicForm /> */}
     </div>
-  )
+  );
 }

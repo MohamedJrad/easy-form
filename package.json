@@ -11,8 +11,8 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "postinstall": "husky install",
-    "commit": "git add . && cz"
+    "commit": "git add . && cz",
+    "prepare":"husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
@@ -29,7 +29,7 @@
     "node": ">=14.0.0"
   },
   "dependencies": {},
-    "config": {
+  "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
