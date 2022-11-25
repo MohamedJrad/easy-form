@@ -1,28 +1,28 @@
-import { FieldLabel, ErrorMessage, FieldContainer } from '../../atoms'
-import { Props } from './types'
-import { defaultProps } from './defaultProps'
-import { useLogic } from './useLogic'
-//import { StyledTextField, StyledPhoneInput } from './styles'
+import { FieldLabel, ErrorMessage, FieldContainer } from "../../atoms";
+import { Props } from "./types";
+import { defaultProps } from "./defaultProps";
+// import { useLogic } from './useLogic'
+// import { StyledTextField, StyledPhoneInput } from './styles'
 
-//import "react-phone-input-2/lib/style.css";
-//import { TextField } from '@mui/material'
+// import "react-phone-input-2/lib/style.css";
+// import { TextField } from '@mui/material'
 
 const Index = ({
   label,
-  placeholder,
-  defaultValue,
+  // placeholder,
+  // defaultValue,
   isHidden,
-  isReadOnly,
+  // isReadOnly,
   isRequired,
   isTouched,
-  isDisabled,
+  // isDisabled,
   error,
-  maxLength,
+  // maxLength,
   isWithRequiredStar,
-  onValueChange,
-  isMultiline,
-  minRows,
-}: Props) => {
+}: // onValueChange,
+// isMultiline,
+// minRows,
+Props) => {
   // const { handleChange } = useLogic({
 
   //   defaultValue,
@@ -75,11 +75,11 @@ const Index = ({
         }}
       /> */}
       </div>
-      <ErrorMessage error={error || ''} isTouched={isTouched} />
+      <ErrorMessage error={error || ""} isTouched={isTouched} />
     </FieldContainer>
-  )
-}
+  );
+};
 
-Index.defaultProps = defaultProps
+Index.defaultProps = defaultProps;
 
-export default Index
+export default Index;

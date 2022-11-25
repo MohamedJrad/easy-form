@@ -17,7 +17,7 @@ export const useLogic = ({ options, defaultValue, onValueChange }) => {
     if (typeof onValueChange === "function") {
       onValueChange(value?.value);
     }
-  }, [value]);
+  }, [value, onValueChange]);
 
   return { handleChange };
 };

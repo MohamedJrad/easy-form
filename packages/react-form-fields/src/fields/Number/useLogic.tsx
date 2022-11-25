@@ -1,28 +1,28 @@
-import { useState, useEffect, ChangeEvent } from 'react'
-//import { handleValue } from "./helpers/handleValue";
-import { ILogic } from './types'
+import { useState, useEffect } from "react";
+// import { handleValue } from "./helpers/handleValue";
+import { ILogic } from "./types";
 
 export const useLogic = ({
-  type,
+  // type,
   defaultValue,
-  maxLength,
+  // maxLength,
   onValueChange,
 }: ILogic) => {
-  const [value, setValue] = useState(defaultValue || '')
+  const [value, setValue] = useState(defaultValue || "");
 
-  const handleChange = (value: string) => {
-    setValue(value)
-  }
+  const handleChange = (v: string) => {
+    setValue(v);
+  };
 
   useEffect(() => {
-    if (typeof onValueChange === 'function') {
-      onValueChange(value)
+    if (typeof onValueChange === "function") {
+      onValueChange(value);
     }
-  }, [value])
+  }, [value, onValueChange]);
 
   useEffect(() => {
-    setValue(defaultValue || '')
-  }, [defaultValue])
+    setValue(defaultValue || "");
+  }, [defaultValue]);
 
-  return { handleChange, value }
-}
+  return { handleChange, value };
+};

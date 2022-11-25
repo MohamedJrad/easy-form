@@ -1,12 +1,8 @@
-import React from "react";
 import { render } from "@testing-library/react";
-import { composeStories } from "@storybook/testing-react";
-import Meta, * as stories from "./Select.stories";
-
-const { Default } = composeStories(stories, Meta);
+import Index from "./index";
 
 describe(`Default`, () => {
   it(`renders`, () => {
-    render(<Default />);
+    render(<Index />);
   });
 });

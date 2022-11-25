@@ -1,8 +1,8 @@
-import Index from './index'
+import Index from "./index";
 
 export default {
-  title: 'Atoms/FieldLabel',
+  title: "Atoms/FieldLabel",
   component: Index,
-}
+};
 
-export const Default = () => <Index />
+export const Default = () => <Index />;

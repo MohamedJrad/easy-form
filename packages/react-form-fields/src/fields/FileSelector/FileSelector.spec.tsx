@@ -1,11 +1,11 @@
-import { render } from '@testing-library/react'
-import Index from './index'
+import { render } from "@testing-library/react";
+import Index from "./index";
 
 describe(`Default`, () => {
   it(`renders`, () => {
-    render(<Index />)
-  })
-})
+    render(<Index />);
+  });
+});
 // describe(`Error`, () => {
 //   it(`renders`, () => {
 //     render(<Error />);

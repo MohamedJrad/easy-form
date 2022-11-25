@@ -9,7 +9,7 @@ export const useLogic = ({ onValueChange }) => {
       const date = dayjs(selectedTime).toDate();
       onValueChange(date.toISOString());
     }
-  }, [selectedTime]);
+  }, [selectedTime, onValueChange]);
 
   return { handleTimeChange, selectedTime };
 };

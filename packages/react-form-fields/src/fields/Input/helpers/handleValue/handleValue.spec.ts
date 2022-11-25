@@ -1,5 +1,6 @@
-import { handleValue } from "../handleValue";
-import { describe } from 'vitest'
+import { describe } from "vitest";
+import { handleValue } from ".";
+
 describe("Input handleValue function", () => {
   it("take string as a value", async () => {
     const value = "some text";

@@ -9,6 +9,6 @@ export const useLogic = ({ onValueChange }) => {
       const date = dayjs(selectedDate).toDate();
       onValueChange(date);
     }
-  }, [selectedDate]);
+  }, [selectedDate, onValueChange]);
   return { handleDateChange, selectedDate };
 };

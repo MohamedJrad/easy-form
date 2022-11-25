@@ -5,8 +5,8 @@ export const useLogic = ({ defaultValue, onValueChange }: ILogic) => {
   const [value, setValue] = useState<string>(defaultValue || "none");
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    {
-      event.target.value != "none" && setValue(event.target.value);
+    if (event.target.value !== "none") {
+      setValue(event.target.value);
     }
   };
 
@@ -16,11 +16,11 @@ export const useLogic = ({ defaultValue, onValueChange }: ILogic) => {
 
   useEffect(() => {
     if (typeof onValueChange === "function") {
-      {
-        value != "none" && onValueChange(value);
+      if (value !== "none") {
+        onValueChange(value);
       }
     }
-  }, [value]);
+  }, [value, onValueChange]);
 
   return { value, handleChange };
 };

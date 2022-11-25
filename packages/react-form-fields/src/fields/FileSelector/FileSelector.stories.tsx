@@ -1,13 +1,12 @@
-//import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import Index from "./index";
 
 export default {
-  title: 'fields/FileSelector',
+  title: "fields/FileSelector",
   component: Index,
 };
 
-
-export const Default = {}
+export const Default = {};
 
 // const Template = (args) => {
 //   useEffect(() => {

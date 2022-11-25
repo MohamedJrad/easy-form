@@ -1,12 +1,12 @@
-//import React, { useEffect } from "react";
-import Index from './index'
+// import React, { useEffect } from "react";
+import Index from "./index";
 
 export default {
-  title: 'fields/DatePicker',
+  title: "fields/DatePicker",
   component: Index,
-}
+};
 
-export const Default = {}
+export const Default = {};
 
 // const Template = (args) => {
 //   useEffect(() => {

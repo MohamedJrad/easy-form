@@ -1,3 +1,3 @@
-import Index from './FileSelector'
+import Index from "./FileSelector";
 
-export default Index
+export default Index;

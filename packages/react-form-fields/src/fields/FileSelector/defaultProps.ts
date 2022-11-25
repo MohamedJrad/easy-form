@@ -1,13 +1,13 @@
-import { Props } from './types'
+import { Props } from "./types";
 
 export const defaultProps: Props = {
-  label: 'File Selector',
+  label: "File Selector",
   placeholder: `"Drag & Drop or Click to Browse"`,
   isRequired: false,
-  defaultValue: '',
+  defaultValue: "",
   isReadOnly: false,
   isHidden: false,
-  error: 'Error message',
+  error: "Error message",
   isTouched: false,
   maxSize: 5,
-}
+};

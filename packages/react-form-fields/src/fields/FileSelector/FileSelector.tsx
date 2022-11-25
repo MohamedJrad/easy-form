@@ -1,25 +1,25 @@
 /* eslint-disable react/jsx-props-no-spreading */
-//import Dropzone from 'react-dropzone'
-//import CircularProgress from '@mui/material/CircularProgress'
-import { ErrorMessage, FieldContainer, FieldLabel } from '../../atoms'
-import { useLogic } from './useLogic'
+// import Dropzone from 'react-dropzone'
+// import CircularProgress from '@mui/material/CircularProgress'
+import { ErrorMessage, FieldContainer, FieldLabel } from "../../atoms";
+// import { useLogic } from './useLogic'
 import {
-  //DropArea,
-  //UploadButton,
-  //RemoveIcon,
+  // DropArea,
+  // UploadButton,
+  // RemoveIcon,
   Wrapper,
-  //UploadIcon,
-  //Info,
-  //Text,
-  //LoaderWrapper,
-  //EyeIcon,
-} from './styles'
-import { Props } from './types'
-import { defaultProps } from './defaultProps'
+  // UploadIcon,
+  // Info,
+  // Text,
+  // LoaderWrapper,
+  // EyeIcon,
+} from "./styles";
+import { Props } from "./types";
+import { defaultProps } from "./defaultProps";
 
 const Index = ({
   label,
-  placeholder,
+  // placeholder,
   // defaultValue,
   // hidden,
   // readOnly,
@@ -27,14 +27,12 @@ const Index = ({
   isTouched,
   // disabled,
   error,
-  onValueChange,
+  // onValueChange,
   // isLoading,
-  //onEyeIconClicked,
+  // onEyeIconClicked,
   isWithRequiredStar,
 }: Props) => {
-  const {
-    // onDrop, selectedFile, removeFile, handleEyeIconClick
-  } = useLogic(onValueChange)
+  // const { onDrop, selectedFile, removeFile, handleEyeIconClick} = useLogic(onValueChange);
 
   return (
     <FieldContainer>
@@ -83,9 +81,9 @@ const Index = ({
       </Wrapper>
       <ErrorMessage error={error} isTouched={isTouched} />
     </FieldContainer>
-  )
-}
+  );
+};
 
-Index.defaultProps = defaultProps
+Index.defaultProps = defaultProps;
 
-export default Index
+export default Index;

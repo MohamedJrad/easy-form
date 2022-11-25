@@ -1,11 +1,11 @@
-import Index from './index'
+import Index from "./index";
 
 export default {
-  title: 'Fields/Input',
+  title: "Fields/Input",
   component: Index,
-}
+};
 
-export const Default = {}
+export const Default = {};
 
 // export const Number = {}
 // Number.args = { type: "number", label: "Number", placeholder: "number" };

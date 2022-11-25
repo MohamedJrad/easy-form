@@ -1,8 +1,8 @@
-import { FieldLabel, ErrorMessage, FieldContainer } from '../../atoms'
-import { Props } from './types'
-import { defaultProps } from './defaultProps'
-import { useLogic } from './helpers/useLogic'
-import { StyledTextField } from './styles'
+import { FieldLabel, ErrorMessage, FieldContainer } from "../../atoms";
+import { Props } from "./types";
+import { defaultProps } from "./defaultProps";
+import { useLogic } from "./helpers/useLogic";
+import { StyledTextField } from "./styles";
 
 const Index = ({
   type,
@@ -27,7 +27,7 @@ const Index = ({
     defaultValue,
     maxLength,
     onValueChange,
-  })
+  });
 
   return (
     <FieldContainer isHidden={isHidden}>
@@ -50,15 +50,15 @@ const Index = ({
           readOnly: isReadOnly,
         }}
         sx={{
-          '& legend': { display: 'none' },
-          '& fieldset': { top: 0 },
+          "& legend": { display: "none" },
+          "& fieldset": { top: 0 },
         }}
       />
-      <ErrorMessage error={error || ''} isTouched={isTouched} />
+      <ErrorMessage error={error || ""} isTouched={isTouched} />
     </FieldContainer>
-  )
-}
+  );
+};
 
-Index.defaultProps = defaultProps
+Index.defaultProps = defaultProps;
 
-export default Index
+export default Index;

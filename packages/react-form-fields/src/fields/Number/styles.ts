@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { TextField } from '@mui/material'
+import styled from "styled-components";
+import { TextField } from "@mui/material";
 // import PhoneInput from 'react-phone-input-2'
-//import PhoneInput from "../../atoms/react-phone-input-2";
+// import PhoneInput from "../../atoms/react-phone-input-2";
 
 export const StyledPhoneInput = styled.div`
   &&& {
@@ -23,7 +23,7 @@ export const StyledPhoneInput = styled.div`
       display: none;
     }
   }
-`
+`;
 export const StyledTextField = styled(TextField)`
   background-color: white;
   & label.Mui-focused {
@@ -47,4 +47,4 @@ export const StyledTextField = styled(TextField)`
       border-color: #1d292e;
     }
   }
-`
+`;

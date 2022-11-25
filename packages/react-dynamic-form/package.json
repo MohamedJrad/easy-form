@@ -7,7 +7,7 @@
     "storybook": "start-storybook -p 6006 --no-open",
     "build-storybook": "build-storybook",
     "test": "vitest",
-    "lint": "eslint --fix"
+    "lint": "eslint  \"src/**/*.+(ts|js|tsx)\" --fix"
   },
   "dependencies": {
     "formik": "^2.2.9",

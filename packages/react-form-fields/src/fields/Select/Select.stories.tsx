@@ -1,14 +1,11 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
-import React from 'react'
-import Index from './index'
+import Index from "./index";
 
 export default {
-  title: 'fields/Select',
+  title: "fields/Select",
   component: Index,
-}
+};
 
-export const Default = {}
+export const Default = {};
 // export const Required = Template.bind({});
 // Required.args = { required: true };
 // export const Error = Template.bind({});

@@ -1,18 +1,18 @@
 /* eslint-disable  react/jsx-no-duplicate-props */
-import Stack from '@mui/material/Stack'
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
-import 'dayjs/locale/ru'
-import 'dayjs/locale/ar-sa'
-import 'dayjs/locale/ar-tn'
-import 'dayjs/locale/ar-ma'
-import 'dayjs/locale/fr'
-import { ErrorMessage, FieldContainer, FieldLabel } from '../../atoms'
-import { useLogic } from './useLogic'
-import { StyledTextField } from './styles'
-import { Props } from './types'
-import { defaultProps } from './defaultProps'
+import Stack from "@mui/material/Stack";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+import "dayjs/locale/ru";
+import "dayjs/locale/ar-sa";
+import "dayjs/locale/ar-tn";
+import "dayjs/locale/ar-ma";
+import "dayjs/locale/fr";
+import { ErrorMessage, FieldContainer, FieldLabel } from "../../atoms";
+import { useLogic } from "./useLogic";
+import { StyledTextField } from "./styles";
+import { Props } from "./types";
+import { defaultProps } from "./defaultProps";
 
 const Index = ({
   label,
@@ -26,7 +26,7 @@ const Index = ({
   locale,
   dateFormat,
 }: Props) => {
-  const { handleDateChange, selectedDate } = useLogic({ onValueChange })
+  const { handleDateChange, selectedDate } = useLogic({ onValueChange });
 
   return (
     <FieldContainer isHidden={isHidden}>
@@ -56,8 +56,8 @@ const Index = ({
 
       <ErrorMessage error={error} isTouched={isTouched} />
     </FieldContainer>
-  )
-}
-Index.defaultProps = defaultProps
+  );
+};
+Index.defaultProps = defaultProps;
 
-export default Index
+export default Index;
