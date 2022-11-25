@@ -1,4 +1,3 @@
-import { describe } from "vitest";
 import { handleValue } from ".";
 
 describe("Input handleValue function", () => {

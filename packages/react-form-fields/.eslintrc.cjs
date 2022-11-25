@@ -46,10 +46,10 @@ module.exports = {
           "**/*.spec.tsx",
           "**/*.stories.ts",
           "**/*.stories.tsx",
-          "**/*.stories.ts",
-          "**/*.stories.tsx",
           "**/*.setup.js",
-          "**/*.config.js"
+          "**/*.config.js",
+          "**/*.setup.ts",
+          "**/*.config.ts"
         ]
       }
     ],

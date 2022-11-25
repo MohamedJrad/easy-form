@@ -9,9 +9,8 @@
     "test": "vitest",
     "lint": "eslint \"src/**/*.+(ts|js|tsx|jsx)\" --fix",
     "test:staged": "vitest --bail --passWithNoTests",
-    "format": "prettier \"src/**/*.+(ts|js|tsx)\" --write",
-    "commit": "git add . && cz",
-    "push":"git push origin"
+    "format": "prettier \"src/**/*.+(ts|js|tsx)\" --write"
+
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -56,14 +55,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.31.4",
     "eslint-plugin-storybook": "^0.6.4",
-    "eslint-plugin-testing-library": "^5.9.1",
-    "jsdom": "^20.0.3",
-    "typescript": "^4.6.4",
-    "vite": "^3.2.3",
-    "vitest": "^0.25.3"
-  }  ,"config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "eslint-plugin-testing-library": "^5.9.1"
   }
 }
