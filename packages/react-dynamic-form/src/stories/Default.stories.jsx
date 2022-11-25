@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
-import Index from "../index";
+import Index from "../DynamicForm";
 
 export default {
   title: 'DynamicForm',

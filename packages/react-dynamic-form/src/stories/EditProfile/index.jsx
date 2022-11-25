@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useReducer } from "react";
 
-import Index from "../../index";
+import Index from "../../DynamicForm";
 import { initialEditProfileFields } from "./initialEditProfileFields";
 import { reducer } from "./editProfileFormReducer";
 

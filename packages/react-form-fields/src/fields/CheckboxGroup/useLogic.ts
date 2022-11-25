@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { ICheckbox, Option } from "./types";
+import React, { useState, useEffect } from 'react'
+import { ICheckbox, Option } from './types'
 
 export const useLogic = (
-  options: Option[],
-  onValueChange: (e: string[]) => void
+  options?: Option[],
+  onValueChange?: (e: string[]) => void,
 ) => {
-  const [value, setValue] = useState<string[] | []>([]);
-  const [checkboxGroup, setCheckboxGroup] = useState({});
+  const [value, setValue] = useState<string[] | []>([])
+  const [checkboxGroup, setCheckboxGroup] = useState({})
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCheckboxGroup({
@@ -16,42 +16,42 @@ export const useLogic = (
         value: event.target.value,
         label: event.target.name,
       },
-    });
-  };
+    })
+  }
 
   useEffect(() => {
     const group: ICheckbox = {
       isChecked: false,
-      value: "",
-      label: "",
-    };
+      value: '',
+      label: '',
+    }
     options?.forEach((element) => {
       group[element.label] = {
         isChecked: false,
         value: element.value,
         label: element.label,
-      };
-    });
-    setCheckboxGroup(group);
-  }, [options]);
+      }
+    })
+    setCheckboxGroup(group)
+  }, [options])
 
   useEffect(() => {
-    const checkedValues: string[] = [];
-    const asArray = Object.entries(checkboxGroup);
+    const checkedValues: string[] = []
+    const asArray = Object.entries(checkboxGroup)
 
     asArray.forEach((e: unknown) => {
       if (e[1].isChecked === true) {
-        checkedValues.push(e[1].value);
+        checkedValues.push(e[1].value)
       }
-    });
-    setValue(checkedValues);
-  }, [checkboxGroup]);
+    })
+    setValue(checkedValues)
+  }, [checkboxGroup])
 
   useEffect(() => {
-    if (typeof onValueChange === "function") {
-      onValueChange(value);
+    if (typeof onValueChange === 'function') {
+      onValueChange(value)
     }
-  }, [value, onValueChange]);
+  }, [value, onValueChange])
 
-  return { handleChange };
-};
+  return { handleChange }
+}

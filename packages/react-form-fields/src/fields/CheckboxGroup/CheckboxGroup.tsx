@@ -19,7 +19,7 @@ const Index = ({
   options,
   direction,
 }: Props) => {
-  const { handleChange } = useLogic({ options, onValueChange });
+  const { handleChange } = useLogic( options, onValueChange );
 
   return (
     <FieldContainer isHidden={isHidden}>

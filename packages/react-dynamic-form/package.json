@@ -7,7 +7,10 @@
     "storybook": "start-storybook -p 6006 --no-open",
     "build-storybook": "build-storybook",
     "test": "vitest",
-    "lint": "eslint  \"src/**/*.+(ts|js|tsx)\" --fix"
+    "test:watch":"vitest --watch",
+    "type-check": "vitest typecheck",
+    "lint": "eslint \"src/**/*.+(ts|js|tsx|jsx)\" --fix",
+    "format": "prettier \"src/**/*.+(ts|js|tsx)\" --write"
   },
   "dependencies": {
     "formik": "^2.2.9",

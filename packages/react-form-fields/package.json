@@ -7,9 +7,9 @@
     "storybook": "start-storybook -p 6006 --no-open",
     "build-storybook": "build-storybook",
     "test": "vitest",
+    "test:watch":"vitest --watch",
     "type-check": "vitest typecheck",
     "lint": "eslint \"src/**/*.+(ts|js|tsx|jsx)\" --fix",
-    "test:staged": "vitest --bail --passWithNoTests",
     "format": "prettier \"src/**/*.+(ts|js|tsx)\" --write"
   },
   "dependencies": {
