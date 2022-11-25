@@ -10,7 +10,8 @@
     "lint": "eslint \"src/**/*.+(ts|js|tsx|jsx)\" --fix",
     "test:staged": "vitest --bail --passWithNoTests",
     "format": "prettier \"src/**/*.+(ts|js|tsx)\" --write",
-    "commit": "git add . && cz"
+    "commit": "git add . && cz",
+    "push":"git push origin"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
