@@ -1,5 +1,10 @@
 module.exports = {
-    "src/**/*.{js,jsx,ts,tsx}": [
+    "app/**/*.{js,jsx,ts,tsx}": [
+        "yarn format",
+        "yarn lint",
+        "yarn test"
+    ],
+    "packages/**/*.{js,jsx,ts,tsx}": [
         "yarn format",
         "yarn lint",
         "yarn test"
