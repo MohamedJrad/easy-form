@@ -1,5 +1,11 @@
 # @med.jrad/tsconfig
 
+## 2.0.0
+
+### Major Changes
+
+- 36675c1: update
+
 ## 3.0.0
 
 ### Major Changes
