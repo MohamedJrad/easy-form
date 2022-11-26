@@ -1,5 +1,16 @@
 # @med.jrad/react-dynamic-form
 
+## 2.0.0
+
+### Major Changes
+
+- e827112: test
+
+### Patch Changes
+
+- Updated dependencies [e827112]
+  - @med.jrad/react-form-fields@2.0.0
+
 ## 1.0.0
 
 ### Major Changes
