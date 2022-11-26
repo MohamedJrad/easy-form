@@ -1,8 +1,13 @@
 {
-  "name": "@med.jrad/react-form-fields",
-  "private": true,
+  "name": "@med-jrad/react-form-fields",
+  "private": false,
   "version": "1.0.0",
-  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "build": "tsup index.tsx --format esm,cjs --dts --external react",
     "clean": "rm -rf dist",
@@ -29,7 +34,6 @@
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "styled-components": "^5.3.6"
-   
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -59,6 +63,11 @@
     "eslint-plugin-react": "^7.31.4",
     "eslint-plugin-storybook": "^0.6.4",
     "eslint-plugin-testing-library": "^5.9.1",
-    "tsup": "^6.5.0", "@med.jrad/tsconfig": "*"
-  }
+    "tsup": "^6.5.0",
+    "@med.jrad/tsconfig": "*"
+  },
+
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
