@@ -1,8 +1,8 @@
 {
   "name": "@med-jrad/react-form-fields",
   "private": false,
-    "license": "MIT",
-  "version": "1.0.0",
+  "license": "MIT",
+  "version": "2.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
