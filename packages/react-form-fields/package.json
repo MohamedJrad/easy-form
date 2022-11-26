@@ -68,7 +68,10 @@
     "tsup": "^6.5.0",
     "@med-jrad/tsconfig": "*"
   },
-
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "author": "",
   "license": "ISC",
   "description": ""
