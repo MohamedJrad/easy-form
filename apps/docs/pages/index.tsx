@@ -1,4 +1,4 @@
-import DynamicForm from '@med.jrad/react-dynamic-form'
+import DynamicForm from '@med-jrad/react-dynamic-form'
 
 export default function Docs() {
   return (

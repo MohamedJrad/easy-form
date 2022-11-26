@@ -365,7 +365,7 @@ var import_react2 = require("react");
 var import_formik2 = require("formik");
 
 // src/FieldSwitcher/index.tsx
-var import_react_form_fields = require("@med.jrad/react-form-fields");
+var import_react_form_fields = require("@med-jrad/react-form-fields");
 var import_jsx_runtime3 = require("react/jsx-runtime");
 var Index3 = ({ field, meta }) => {
   const {

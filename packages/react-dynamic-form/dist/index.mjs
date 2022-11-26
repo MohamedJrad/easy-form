@@ -345,7 +345,7 @@ import {
   DatePicker,
   TimePicker,
   Number
-} from "@med.jrad/react-form-fields";
+} from "@med-jrad/react-form-fields";
 import { jsx as jsx3 } from "react/jsx-runtime";
 var Index3 = ({ field, meta }) => {
   const {
