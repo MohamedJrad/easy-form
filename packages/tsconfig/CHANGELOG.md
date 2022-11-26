@@ -1,5 +1,11 @@
 # @med.jrad/tsconfig
 
+## 0.0.2
+
+### Patch Changes
+
+- 0f51e7e: update
+
 ## 2.0.0
 
 ### Major Changes
