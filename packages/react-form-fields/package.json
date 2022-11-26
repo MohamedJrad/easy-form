@@ -1,7 +1,7 @@
 {
   "name": "@med.jrad/react-form-fields",
   "private": true,
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "module",
   "scripts": {
     "build": "tsup index.tsx --format esm,cjs --dts --external react",
@@ -29,7 +29,6 @@
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "styled-components": "^5.3.6"
-   
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -59,6 +58,7 @@
     "eslint-plugin-react": "^7.31.4",
     "eslint-plugin-storybook": "^0.6.4",
     "eslint-plugin-testing-library": "^5.9.1",
-    "tsup": "^6.5.0", "@med.jrad/tsconfig": "*"
+    "tsup": "^6.5.0",
+    "@med.jrad/tsconfig": "*"
   }
 }
