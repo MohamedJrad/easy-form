@@ -1,12 +1,7 @@
-"use strict";
-var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
-var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __propIsEnum = Object.prototype.propertyIsEnumerable;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
@@ -22,30 +17,6 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
-  }
-  return to;
-};
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-  mod
-));
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
-
-// index.tsx
-var react_dynamic_form_exports = {};
-__export(react_dynamic_form_exports, {
-  default: () => react_dynamic_form_default
-});
-module.exports = __toCommonJS(react_dynamic_form_exports);
 
 // src/helpers/adjustFields/index.js
 var inRange = (x, min, max) => (x - min) * (x - max) <= 0;
@@ -161,8 +132,8 @@ var defaultProps = {
 };
 
 // src/formik/FormikContext/index.jsx
-var import_react = __toESM(require("react"));
-var import_formik = require("formik");
+import React from "react";
+import { Formik } from "formik";
 
 // src/helpers/useInitialValues.js
 var useInitialValues = (fields) => {
@@ -177,10 +148,10 @@ var useInitialValues = (fields) => {
 };
 
 // src/helpers/useValidationSchema.js
-var Yup4 = __toESM(require("yup"));
+import * as Yup4 from "yup";
 
 // src/helpers/yups/fileYup.js
-var Yup = __toESM(require("yup"));
+import * as Yup from "yup";
 var fileYup = ({
   isRequired,
   supportedFormats,
@@ -213,7 +184,7 @@ var fileYup = ({
 };
 
 // src/helpers/yups/stringYup.js
-var Yup2 = __toESM(require("yup"));
+import * as Yup2 from "yup";
 var stringYup = ({
   isRequired,
   fieldIsRequiredMessage,
@@ -232,7 +203,7 @@ var stringYup = ({
 };
 
 // src/helpers/yups/arrayOfStringsYup.js
-var Yup3 = __toESM(require("yup"));
+import * as Yup3 from "yup";
 var arrayOfStringsYup = ({
   required,
   fieldIsRequiredMessage,
@@ -309,11 +280,11 @@ var useValidationSchema = (fields) => {
 };
 
 // src/formik/FormikContext/index.jsx
-var import_jsx_runtime = require("react/jsx-runtime");
+import { jsx } from "react/jsx-runtime";
 var Index = ({ fields, onSubmit, children, dir }) => {
   const initialValues = useInitialValues(fields);
   const validationSchema = useValidationSchema(fields);
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_formik.Formik, {
+  return /* @__PURE__ */ jsx(Formik, {
     dir,
     initialValues,
     validationSchema,
@@ -324,12 +295,12 @@ var Index = ({ fields, onSubmit, children, dir }) => {
 var FormikContext_default = Index;
 
 // src/formik/FormikForm/index.jsx
-var import_react3 = __toESM(require("react"));
-var import_formik3 = require("formik");
+import React3, { useState as useState2, useEffect as useEffect2 } from "react";
+import { Form, useFormikContext } from "formik";
 
 // src/atoms/SubmitButton/styles.ts
-var import_styled_components = __toESM(require("styled-components"));
-var StyledButton = import_styled_components.default.button`
+import styled from "styled-components";
+var StyledButton = styled.button`
   border-radius: 3px;
   font-size: 13px;
   font-weight: 700;
@@ -351,9 +322,9 @@ var StyledButton = import_styled_components.default.button`
 `;
 
 // src/atoms/SubmitButton/index.tsx
-var import_jsx_runtime2 = require("react/jsx-runtime");
+import { jsx as jsx2 } from "react/jsx-runtime";
 var Index2 = ({ children }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(StyledButton, {
+  return /* @__PURE__ */ jsx2(StyledButton, {
     type: "submit",
     children
   });
@@ -361,12 +332,21 @@ var Index2 = ({ children }) => {
 var SubmitButton_default = Index2;
 
 // src/formik/FormikField/index.tsx
-var import_react2 = require("react");
-var import_formik2 = require("formik");
+import { useState, useEffect } from "react";
+import { Field } from "formik";
 
 // src/FieldSwitcher/index.tsx
-var import_react_form_fields = require("@med.jrad/react-form-fields");
-var import_jsx_runtime3 = require("react/jsx-runtime");
+import {
+  Input,
+  Select,
+  CheckboxGroup,
+  RadioGroup,
+  FileSelector,
+  DatePicker,
+  TimePicker,
+  Number
+} from "@med.jrad/react-form-fields";
+import { jsx as jsx3 } from "react/jsx-runtime";
 var Index3 = ({ field, meta }) => {
   const {
     type,
@@ -389,7 +369,7 @@ var Index3 = ({ field, meta }) => {
   const { error, touched } = meta;
   switch (type) {
     case "text":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_form_fields.Input, {
+      return /* @__PURE__ */ jsx3(Input, {
         type: "text",
         name,
         label,
@@ -405,9 +385,9 @@ var Index3 = ({ field, meta }) => {
         isWithRequiredStar
       });
     case "phone":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", {});
+      return /* @__PURE__ */ jsx3("div", {});
     case "textarea":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_form_fields.Input, {
+      return /* @__PURE__ */ jsx3(Input, {
         type: "text",
         name,
         label,
@@ -424,7 +404,7 @@ var Index3 = ({ field, meta }) => {
         isWithRequiredStar
       });
     case "email":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_form_fields.Input, {
+      return /* @__PURE__ */ jsx3(Input, {
         type: "email",
         name,
         label,
@@ -440,7 +420,7 @@ var Index3 = ({ field, meta }) => {
         isWithRequiredStar
       });
     case "password":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_form_fields.Input, {
+      return /* @__PURE__ */ jsx3(Input, {
         type: "password",
         name,
         label,
@@ -456,7 +436,7 @@ var Index3 = ({ field, meta }) => {
         isWithRequiredStar
       });
     case "number":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_form_fields.Number, {
+      return /* @__PURE__ */ jsx3(Number, {
         name,
         label,
         placeholder,
@@ -470,7 +450,7 @@ var Index3 = ({ field, meta }) => {
         maxLength
       });
     case "date":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_form_fields.DatePicker, {
+      return /* @__PURE__ */ jsx3(DatePicker, {
         label,
         isDisabled,
         defaultValue,
@@ -481,7 +461,7 @@ var Index3 = ({ field, meta }) => {
         dateFormat
       });
     case "time":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_form_fields.TimePicker, {
+      return /* @__PURE__ */ jsx3(TimePicker, {
         label,
         isRequired,
         isHidden,
@@ -492,7 +472,7 @@ var Index3 = ({ field, meta }) => {
         onValueChange
       });
     case "select":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_form_fields.Select, {
+      return /* @__PURE__ */ jsx3(Select, {
         name,
         label,
         placeholder,
@@ -507,7 +487,7 @@ var Index3 = ({ field, meta }) => {
         isWithRequiredStar
       });
     case "radioGroup":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_form_fields.RadioGroup, {
+      return /* @__PURE__ */ jsx3(RadioGroup, {
         name,
         label,
         options,
@@ -521,7 +501,7 @@ var Index3 = ({ field, meta }) => {
         isWithRequiredStar
       });
     case "checkboxGroup":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_form_fields.CheckboxGroup, {
+      return /* @__PURE__ */ jsx3(CheckboxGroup, {
         name,
         label,
         options,
@@ -535,7 +515,7 @@ var Index3 = ({ field, meta }) => {
         isWithRequiredStar
       });
     case "file":
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_form_fields.FileSelector, {
+      return /* @__PURE__ */ jsx3(FileSelector, {
         label,
         placeholder,
         isRequired,
@@ -550,46 +530,46 @@ var Index3 = ({ field, meta }) => {
         isWithRequiredStar
       });
     default:
-      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", {});
+      return /* @__PURE__ */ jsx3("div", {});
   }
 };
 var FieldSwitcher_default = Index3;
 
 // src/formik/FormikField/styles.ts
-var import_styled_components2 = __toESM(require("styled-components"));
-var Wrapper = import_styled_components2.default.div`
+import styled2, { css } from "styled-components";
+var Wrapper = styled2.div`
   min-width: ${({ fieldMinWidth }) => `${fieldMinWidth}px`};
 
-  ${({ dir, fieldRightMargin }) => dir === "rtl" ? import_styled_components2.css`
+  ${({ dir, fieldRightMargin }) => dir === "rtl" ? css`
           margin-left: ${fieldRightMargin}px;
-        ` : import_styled_components2.css`
+        ` : css`
           margin-right: ${fieldRightMargin}px;
         `}
 `;
 
 // src/formik/FormikField/index.tsx
-var import_jsx_runtime4 = require("react/jsx-runtime");
+import { jsx as jsx4 } from "react/jsx-runtime";
 var Index4 = ({
   field,
   onValueChange,
   fieldRightMargin,
   fieldMinWidth
 }) => {
-  const [dir, setDir] = (0, import_react2.useState)("ltr");
-  (0, import_react2.useEffect)(() => {
+  const [dir, setDir] = useState("ltr");
+  useEffect(() => {
     setDir(document.dir || "ltr");
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_formik2.Field, {
+  return /* @__PURE__ */ jsx4(Field, {
     name: field.name,
     children: ({ meta }) => {
       const modifiedField = __spreadProps(__spreadValues({}, field), {
         onValueChange: onValueChange(field)
       });
-      return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Wrapper, {
+      return /* @__PURE__ */ jsx4(Wrapper, {
         fieldMinWidth,
         fieldRightMargin,
         dir,
-        children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(FieldSwitcher_default, {
+        children: /* @__PURE__ */ jsx4(FieldSwitcher_default, {
           field: modifiedField,
           meta
         })
@@ -600,12 +580,12 @@ var Index4 = ({
 var FormikField_default = Index4;
 
 // src/formik/FormikForm/styles.ts
-var import_styled_components3 = __toESM(require("styled-components"));
-var Container = import_styled_components3.default.div``;
-var InlineFieldContainer = import_styled_components3.default.div`
+import styled3 from "styled-components";
+var Container = styled3.div``;
+var InlineFieldContainer = styled3.div`
   width: ${({ width }) => width};
 `;
-var Wrapper2 = import_styled_components3.default.div`
+var Wrapper2 = styled3.div`
   border-radius: 5px;
   position: relative;
   background-color: #f8f8f8;
@@ -617,14 +597,14 @@ var Wrapper2 = import_styled_components3.default.div`
     border: 1px dashed #1d292e;
   }
 `;
-var InlineFieldsContainer = import_styled_components3.default.div`
+var InlineFieldsContainer = styled3.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 `;
 
 // src/formik/FormikForm/index.jsx
-var import_jsx_runtime5 = require("react/jsx-runtime");
+import { Fragment, jsx as jsx5, jsxs } from "react/jsx-runtime";
 var Index5 = ({
   fields,
   submitButtonLabel,
@@ -632,10 +612,10 @@ var Index5 = ({
   fieldRightMargin,
   children
 }) => {
-  const [currentField, setCurrentField] = (0, import_react3.useState)();
-  const { values, setFieldValue, setFieldTouched, submitCount } = (0, import_formik3.useFormikContext)();
-  const props = (0, import_formik3.useFormikContext)();
-  (0, import_react3.useEffect)(() => {
+  const [currentField, setCurrentField] = useState2();
+  const { values, setFieldValue, setFieldTouched, submitCount } = useFormikContext();
+  const props = useFormikContext();
+  useEffect2(() => {
   }, [props]);
   const onValueChange = (field) => (value) => {
     setCurrentField(field);
@@ -644,7 +624,7 @@ var Index5 = ({
       field.onValueChange(value);
     }
   };
-  (0, import_react3.useEffect)(() => {
+  useEffect2(() => {
     if (currentField && typeof currentField.validateOnValueChange === "function") {
       if (values[currentField.name]) {
         setFieldTouched(currentField.name, true);
@@ -653,15 +633,15 @@ var Index5 = ({
       }
     }
   }, [values]);
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_formik3.Form, {
+  return /* @__PURE__ */ jsxs(Form, {
     children: [
-      fields.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_jsx_runtime5.Fragment, {
-        children: fields.map((field, i) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", {
+      fields.length > 0 && /* @__PURE__ */ jsx5(Fragment, {
+        children: fields.map((field, i) => /* @__PURE__ */ jsxs("div", {
           children: [
-            Array.isArray(field) && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InlineFieldsContainer, {
-              children: field.map((f) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", {
+            Array.isArray(field) && /* @__PURE__ */ jsx5(InlineFieldsContainer, {
+              children: field.map((f) => /* @__PURE__ */ jsx5("div", {
                 style: { flexGrow: 1, fieldMinWidth: `${fieldMinWidth}` },
-                children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(FormikField_default, {
+                children: /* @__PURE__ */ jsx5(FormikField_default, {
                   field: f,
                   onValueChange,
                   fieldRightMargin,
@@ -669,7 +649,7 @@ var Index5 = ({
                 })
               }, f.name))
             }),
-            !Array.isArray(field) && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(FormikField_default, {
+            !Array.isArray(field) && /* @__PURE__ */ jsx5(FormikField_default, {
               field,
               onValueChange,
               fieldRightMargin,
@@ -679,7 +659,7 @@ var Index5 = ({
         }, i))
       }),
       children,
-      !children && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(SubmitButton_default, {
+      !children && /* @__PURE__ */ jsx5(SubmitButton_default, {
         children: submitButtonLabel
       })
     ]
@@ -688,7 +668,7 @@ var Index5 = ({
 var FormikForm_default = Index5;
 
 // src/DynamicForm/DynamicForm.tsx
-var import_jsx_runtime6 = require("react/jsx-runtime");
+import { jsx as jsx6 } from "react/jsx-runtime";
 var Index6 = ({
   fields,
   onSubmit,
@@ -699,16 +679,16 @@ var Index6 = ({
   children
 }) => {
   if ((fields == null ? void 0 : fields.length) === 0)
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", {});
+    return /* @__PURE__ */ jsx6("div", {});
   let adjustedFields = fields;
   if (placement.length > 0) {
     adjustedFields = adjustFields(fields, placement);
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(FormikContext_default, {
+  return /* @__PURE__ */ jsx6(FormikContext_default, {
     fields,
     onSubmit,
     dir: "rtl",
-    children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(FormikForm_default, {
+    children: /* @__PURE__ */ jsx6(FormikForm_default, {
       fields: adjustedFields,
       submitButtonLabel,
       fieldMinWidth,
@@ -725,5 +705,6 @@ var DynamicForm_default2 = DynamicForm_default;
 
 // index.tsx
 var react_dynamic_form_default = DynamicForm_default2;
-// Annotate the CommonJS export names for ESM import in node:
-0 && (module.exports = {});
+export {
+  react_dynamic_form_default as default
+};
