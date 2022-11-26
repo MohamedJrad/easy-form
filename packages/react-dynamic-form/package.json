@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "build": "tsup index.tsx --format esm,cjs --dts --external react",
+    "clean": "rm -rf dist",
+    "dev": "tsup index.tsx --format esm,cjs --watch --dts --external react",
     "storybook": "start-storybook -p 6006 --no-open",
     "build-storybook": "build-storybook",
     "test": "vitest",
@@ -35,6 +38,7 @@
     "babel-loader": "^8.3.0",
     "jsdom": "^20.0.3",
     "typescript": "^4.6.4",
+    "@med.jrad/tsconfig": "*",
     "vite": "^3.2.3",
     "vitest": "^0.25.3"
   }

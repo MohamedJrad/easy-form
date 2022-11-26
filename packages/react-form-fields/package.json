@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "build": "tsup index.tsx --format esm,cjs --dts --external react",
+    "clean": "rm -rf dist",
+    "dev": "tsup index.tsx --format esm,cjs --watch --dts --external react",
     "storybook": "start-storybook -p 6006 --no-open",
     "build-storybook": "build-storybook",
     "test": "vitest",
@@ -25,8 +28,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
-    "styled-components": "^5.3.6",
-    "tsconfig": "*"
+    "styled-components": "^5.3.6"
+   
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -55,6 +58,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.31.4",
     "eslint-plugin-storybook": "^0.6.4",
-    "eslint-plugin-testing-library": "^5.9.1"
+    "eslint-plugin-testing-library": "^5.9.1",
+    "tsup": "^6.5.0", "@med.jrad/tsconfig": "*"
   }
 }
