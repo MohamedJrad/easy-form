@@ -1,7 +1,7 @@
 {
   "name": "@med-jrad/react-dynamic-form",
   "private": false,
-  "version": "1.1.0",
+  "version": "0.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
