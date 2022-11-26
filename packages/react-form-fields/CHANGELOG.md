@@ -4,6 +4,12 @@
 
 ### Major Changes
 
+- 69a3775: update
+
+## 2.0.0
+
+### Major Changes
+
 - 8c92c9d: update
 - 8dd40b4: update
 
