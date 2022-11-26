@@ -1,6 +1,7 @@
 {
   "name": "@med-jrad/tsconfig",
   "version": "1.0.0",
+    "license": "MIT",
   "private": false,
   "files": [
     "base.json",
