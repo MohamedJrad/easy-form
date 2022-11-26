@@ -1,5 +1,17 @@
 # @med.jrad/react-form-fields
 
+## 3.0.0
+
+### Major Changes
+
+- 36675c1: update
+
+## 2.0.0
+
+### Major Changes
+
+- 69a3775: update
+
 ## 2.0.0
 
 ### Major Changes
