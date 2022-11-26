@@ -1,13 +1,13 @@
 {
   "name": "@med.jrad/react-form-fields",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "storybook": "start-storybook -p 6006 --no-open",
     "build-storybook": "build-storybook",
     "test": "vitest",
-    "test:watch":"vitest --watch",
+    "test:watch": "vitest --watch",
     "type-check": "vitest typecheck",
     "lint": "eslint \"src/**/*.+(ts|js|tsx|jsx)\" --fix",
     "format": "prettier \"src/**/*.+(ts|js|tsx)\" --write"

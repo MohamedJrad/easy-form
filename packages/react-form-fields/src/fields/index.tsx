@@ -6,4 +6,3 @@ export { default as FileSelector } from './FileSelector'
 export { default as DatePicker } from './DatePicker'
 export { default as TimePicker } from './TimePicker'
 export { default as Number } from './Number'
-//test
