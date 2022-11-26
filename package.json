@@ -15,6 +15,7 @@
     "commit": "git add . && cz",
     "pre-commit": "turbo run lint",
     "push": "git push origin",
+    "pull":"git pull origin",
     "branch": "git checkout -b",
     "prepare": "husky install",
     "clean": "turbo run clean && rm -rf node_modules",
