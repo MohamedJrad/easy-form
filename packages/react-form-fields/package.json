@@ -1,6 +1,7 @@
 {
   "name": "@med-jrad/react-form-fields",
   "private": false,
+    "license": "MIT",
   "version": "1.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -71,6 +72,5 @@
     "registry": "https://registry.npmjs.org"
   },
   "author": "",
-  "license": "ISC",
   "description": ""
 }
