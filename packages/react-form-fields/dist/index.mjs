@@ -1,23 +1,3 @@
-var __defProp = Object.defineProperty;
-var __defProps = Object.defineProperties;
-var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-
 // src/atoms/FieldLabel/defaultProps.ts
 var defaultProps = {
   label: "Label",
@@ -307,18 +287,18 @@ import MenuItem from "@mui/material/MenuItem";
 // src/fields/Select/useLogic.ts
 import { useState as useState2, useEffect as useEffect2 } from "react";
 var useLogic2 = ({ defaultValue, onValueChange }) => {
-  const [value, setValue] = useState2(defaultValue || "none");
+  const [value, setValue] = useState2(defaultValue || "");
   const handleChange = (event) => {
-    if (event.target.value !== "none") {
+    if (event.target.value !== "") {
       setValue(event.target.value);
     }
   };
   useEffect2(() => {
-    setValue(defaultValue || "none");
+    setValue(defaultValue || "");
   }, [defaultValue]);
   useEffect2(() => {
     if (typeof onValueChange === "function") {
-      if (value !== "none") {
+      if (value !== "") {
         onValueChange(value);
       }
     }
@@ -442,11 +422,11 @@ var Index5 = ({
         error: isTouched && !!error,
         children: [
           placeholder && /* @__PURE__ */ jsx7(MenuItem, {
-            value: "none",
+            value: "",
             disabled: true,
             children: placeholder
           }),
-          options4 == null ? void 0 : options4.map((option) => /* @__PURE__ */ jsx7(MenuItem, {
+          options4?.map((option) => /* @__PURE__ */ jsx7(MenuItem, {
             value: option.value,
             children: option.label
           }, option.value))
@@ -508,13 +488,14 @@ var useLogic3 = (options4, onValueChange) => {
   const [value, setValue] = useState3([]);
   const [checkboxGroup, setCheckboxGroup] = useState3({});
   const handleChange = (event) => {
-    setCheckboxGroup(__spreadProps(__spreadValues({}, checkboxGroup), {
+    setCheckboxGroup({
+      ...checkboxGroup,
       [event.target.name]: {
         isChecked: event.target.checked,
         value: event.target.value,
         label: event.target.name
       }
-    }));
+    });
   };
   useEffect3(() => {
     const group = {
@@ -522,7 +503,7 @@ var useLogic3 = (options4, onValueChange) => {
       value: "",
       label: ""
     };
-    options4 == null ? void 0 : options4.forEach((element) => {
+    options4?.forEach((element) => {
       group[element.label] = {
         isChecked: false,
         value: element.value,
@@ -576,7 +557,7 @@ var Index6 = ({
         onChange: handleChange,
         children: /* @__PURE__ */ jsx8(GroupWrapper, {
           direction,
-          children: options4 == null ? void 0 : options4.map((option) => /* @__PURE__ */ jsx8(FormControlLabel, {
+          children: options4?.map((option) => /* @__PURE__ */ jsx8(FormControlLabel, {
             name,
             value: option.value,
             control: /* @__PURE__ */ jsx8(Checkbox, {
@@ -617,14 +598,14 @@ var useLogic4 = ({ options: options4, defaultValue, onValueChange }) => {
     defaultValue || { value: "", label: "" }
   );
   const handleChange = (event) => {
-    const selectedOption = options4 == null ? void 0 : options4.filter(
+    const selectedOption = options4?.filter(
       (option) => option.value === event.target.value
     )[0];
     setValue(selectedOption || { value: "option1", label: "option1" });
   };
   useEffect4(() => {
     if (typeof onValueChange === "function") {
-      onValueChange(value == null ? void 0 : value.value);
+      onValueChange(value?.value);
     }
   }, [value, onValueChange]);
   return { handleChange };
@@ -692,7 +673,7 @@ var Index7 = ({
         onChange: handleChange,
         children: /* @__PURE__ */ jsx9(RadioWrapper, {
           direction,
-          children: options4 == null ? void 0 : options4.map((option) => /* @__PURE__ */ jsx9(FormControlLabel2, {
+          children: options4?.map((option) => /* @__PURE__ */ jsx9(FormControlLabel2, {
             value: option.value,
             control: /* @__PURE__ */ jsx9(Radio, {
               sx: {

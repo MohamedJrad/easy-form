@@ -1,10 +1,8 @@
-import React from 'react'
-// import { ThemeProvider } from "styled-components";
-import { adjustFields } from '../helpers/adjustFields'
-import { defaultProps } from './defaultProps'
-import FormikContext from '../formik/FormikContext'
-import Form from '../formik/FormikForm'
-import { Props } from './types'
+import { adjustFields } from "../helpers/adjustFields";
+import { defaultProps } from "./defaultProps";
+import FormikContext from "../formik/FormikContext";
+import Form from "../formik/FormikForm";
+import { Props } from "./types";
 
 const Index = ({
   fields,
@@ -16,11 +14,11 @@ const Index = ({
   children,
 }: // theme,
 Props) => {
-  if (fields?.length === 0) return <div />
+  if (fields?.length === 0) return <div />;
 
-  let adjustedFields = fields
-  if (placement!.length > 0) {
-    adjustedFields = adjustFields(fields, placement)
+  let adjustedFields = fields;
+  if (placement && placement.length > 0) {
+    adjustedFields = adjustFields(fields, placement);
   }
 
   return (
@@ -35,9 +33,8 @@ Props) => {
         {children}
       </Form>
     </FormikContext>
-    // </ThemeProvider>
-  )
-}
+  );
+};
 
-Index.defaultProps = defaultProps
-export default Index
+Index.defaultProps = defaultProps;
+export default Index;

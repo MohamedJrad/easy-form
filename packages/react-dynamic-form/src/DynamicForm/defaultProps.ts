@@ -19,12 +19,12 @@ export const defaultProps = {
       label: "Text Area",
       placeholder: "put some text here ...",
     },
-    {
-      type: "number",
-      name: "number",
-      label: "Number",
-      placeholder: "put some number here ...",
-    },
+    // {
+    //   type: "number",
+    //   name: "number",
+    //   label: "Number",
+    //   placeholder: "put some number here ...",
+    // },
     {
       type: "email",
       name: "email",
@@ -37,16 +37,16 @@ export const defaultProps = {
       label: "Password",
       placeholder: "password",
     },
-    {
-      type: "date",
-      name: "date",
-      label: "Date Picker",
-    },
-    {
-      type: "time",
-      name: "time",
-      label: "Time Picker",
-    },
+    // {
+    //   type: "date",
+    //   name: "date",
+    //   label: "Date Picker",
+    // },
+    // {
+    //   type: "time",
+    //   name: "time",
+    //   label: "Time Picker",
+    // },
     {
       type: "file",
       name: "file",

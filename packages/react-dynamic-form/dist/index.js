@@ -57,7 +57,7 @@ var adjustFields = (fields, placement) => {
     placement.forEach((element) => {
       let list = [];
       if (isArray(element)) {
-        if (element.length > 0) {
+        if ((element == null ? void 0 : element.length) > 0) {
           list = adjustFields(fields, element);
           newFields.push(list);
         }
@@ -94,12 +94,6 @@ var defaultProps = {
       placeholder: "put some text here ..."
     },
     {
-      type: "number",
-      name: "number",
-      label: "Number",
-      placeholder: "put some number here ..."
-    },
-    {
       type: "email",
       name: "email",
       label: "Email ",
@@ -110,16 +104,6 @@ var defaultProps = {
       name: "password",
       label: "Password",
       placeholder: "password"
-    },
-    {
-      type: "date",
-      name: "date",
-      label: "Date Picker"
-    },
-    {
-      type: "time",
-      name: "time",
-      label: "Time Picker"
     },
     {
       type: "file",
@@ -161,7 +145,6 @@ var defaultProps = {
 };
 
 // src/formik/FormikContext/index.jsx
-var import_react = __toESM(require("react"));
 var import_formik = require("formik");
 
 // src/helpers/useInitialValues.js
@@ -191,15 +174,14 @@ var fileYup = ({
   validations
 }) => {
   let schema = Yup.mixed()[isRequired ? "required" : "optional"](fieldIsRequiredMessage).test("fileType", unsupportedFileFormatMessage, (file) => {
-    console.log("\u{1F680} ~ file: fileYup.js ~ line 16 ~ .test ~ file", file);
     if (file) {
-      return file && (supportedFormats == null ? void 0 : supportedFormats.includes(file.type));
+      return supportedFormats == null ? void 0 : supportedFormats.includes(file.type);
     }
     return true;
   }).test("fileSize", FileSizeIsLargeMessage, (file) => {
     const sizeInBytes = maxFileSizeMB * 1024 * 1024;
     if (file) {
-      return file && file.size <= sizeInBytes;
+      return file.size <= sizeInBytes;
     }
     return true;
   });
@@ -324,8 +306,7 @@ var Index = ({ fields, onSubmit, children, dir }) => {
 var FormikContext_default = Index;
 
 // src/formik/FormikForm/index.jsx
-var import_react3 = __toESM(require("react"));
-var import_formik3 = require("formik");
+var import_formik4 = require("formik");
 
 // src/atoms/SubmitButton/styles.ts
 var import_styled_components = __toESM(require("styled-components"));
@@ -361,7 +342,7 @@ var Index2 = ({ children }) => {
 var SubmitButton_default = Index2;
 
 // src/formik/FormikField/index.tsx
-var import_react2 = require("react");
+var import_react = require("react");
 var import_formik2 = require("formik");
 
 // src/FieldSwitcher/index.tsx
@@ -575,8 +556,8 @@ var Index4 = ({
   fieldRightMargin,
   fieldMinWidth
 }) => {
-  const [dir, setDir] = (0, import_react2.useState)("ltr");
-  (0, import_react2.useEffect)(() => {
+  const [dir, setDir] = (0, import_react.useState)("ltr");
+  (0, import_react.useEffect)(() => {
     setDir(document.dir || "ltr");
   }, []);
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_formik2.Field, {
@@ -623,6 +604,34 @@ var InlineFieldsContainer = import_styled_components3.default.div`
   flex-wrap: wrap;
 `;
 
+// src/formik/FormikForm/useLogic.js
+var import_react2 = require("react");
+var import_formik3 = require("formik");
+var useLogic = () => {
+  const [currentField, setCurrentField] = (0, import_react2.useState)();
+  const [currentValue, setCurrentValue] = (0, import_react2.useState)();
+  const { values, setFieldValue, setFieldTouched, submitCount } = (0, import_formik3.useFormikContext)();
+  const onValueChange = (field) => (value) => {
+    setCurrentField(field);
+    setCurrentValue(value);
+  };
+  (0, import_react2.useEffect)(() => {
+    if (currentField && currentValue) {
+      setFieldValue(currentField.name, currentValue);
+    }
+  }, [currentField, currentValue, setFieldValue]);
+  (0, import_react2.useEffect)(() => {
+    if (currentField && typeof currentField.validateOnValueChange === "function") {
+      if (values[currentField.name]) {
+        setFieldTouched(currentField.name, true);
+      } else if (!submitCount) {
+        setFieldTouched(currentField.name, false);
+      }
+    }
+  }, [values, currentField, setFieldTouched, submitCount]);
+  return { onValueChange };
+};
+
 // src/formik/FormikForm/index.jsx
 var import_jsx_runtime5 = require("react/jsx-runtime");
 var Index5 = ({
@@ -632,31 +641,11 @@ var Index5 = ({
   fieldRightMargin,
   children
 }) => {
-  const [currentField, setCurrentField] = (0, import_react3.useState)();
-  const { values, setFieldValue, setFieldTouched, submitCount } = (0, import_formik3.useFormikContext)();
-  const props = (0, import_formik3.useFormikContext)();
-  (0, import_react3.useEffect)(() => {
-  }, [props]);
-  const onValueChange = (field) => (value) => {
-    setCurrentField(field);
-    setFieldValue(field.name, value);
-    if (typeof field.onValueChange === "function") {
-      field.onValueChange(value);
-    }
-  };
-  (0, import_react3.useEffect)(() => {
-    if (currentField && typeof currentField.validateOnValueChange === "function") {
-      if (values[currentField.name]) {
-        setFieldTouched(currentField.name, true);
-      } else if (!submitCount) {
-        setFieldTouched(currentField.name, false);
-      }
-    }
-  }, [values]);
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_formik3.Form, {
+  const { onValueChange } = useLogic();
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_formik4.Form, {
     children: [
       fields.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_jsx_runtime5.Fragment, {
-        children: fields.map((field, i) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", {
+        children: fields.map((field) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", {
           children: [
             Array.isArray(field) && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InlineFieldsContainer, {
               children: field.map((f) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", {
@@ -676,7 +665,7 @@ var Index5 = ({
               fieldMinWidth
             }, field.name)
           ]
-        }, i))
+        }, field.toString()))
       }),
       children,
       !children && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(SubmitButton_default, {
@@ -701,7 +690,7 @@ var Index6 = ({
   if ((fields == null ? void 0 : fields.length) === 0)
     return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", {});
   let adjustedFields = fields;
-  if (placement.length > 0) {
+  if (placement && placement.length > 0) {
     adjustedFields = adjustFields(fields, placement);
   }
   return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(FormikContext_default, {

@@ -343,18 +343,18 @@ var import_MenuItem = __toESM(require("@mui/material/MenuItem"));
 // src/fields/Select/useLogic.ts
 var import_react2 = require("react");
 var useLogic2 = ({ defaultValue, onValueChange }) => {
-  const [value, setValue] = (0, import_react2.useState)(defaultValue || "none");
+  const [value, setValue] = (0, import_react2.useState)(defaultValue || "");
   const handleChange = (event) => {
-    if (event.target.value !== "none") {
+    if (event.target.value !== "") {
       setValue(event.target.value);
     }
   };
   (0, import_react2.useEffect)(() => {
-    setValue(defaultValue || "none");
+    setValue(defaultValue || "");
   }, [defaultValue]);
   (0, import_react2.useEffect)(() => {
     if (typeof onValueChange === "function") {
-      if (value !== "none") {
+      if (value !== "") {
         onValueChange(value);
       }
     }
@@ -478,7 +478,7 @@ var Index5 = ({
         error: isTouched && !!error,
         children: [
           placeholder && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_MenuItem.default, {
-            value: "none",
+            value: "",
             disabled: true,
             children: placeholder
           }),

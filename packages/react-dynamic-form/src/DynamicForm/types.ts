@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
+import { Field } from "../types";
 
 export interface Props {
-  fields?: unknown[];
+  fields?: Field[];
   onSubmit?: (e: unknown) => void;
   submitButtonLabel?: string;
   placement?: number[] | number[][];

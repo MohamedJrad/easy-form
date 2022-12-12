@@ -9,7 +9,7 @@ export const adjustFields = (fields, placement) => {
     placement.forEach((element) => {
       let list = [];
       if (isArray(element)) {
-        if (element.length > 0) {
+        if (element?.length > 0) {
           list = adjustFields(fields, element);
           newFields.push(list);
         }

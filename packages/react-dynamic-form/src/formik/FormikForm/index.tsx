@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Form, useFormikContext } from "formik";
+import { Form } from "formik";
 import SubmitButton from "../../atoms/SubmitButton";
 import FormikField from "../FormikField";
 import { InlineFieldsContainer } from "./styles";
+import { useLogic } from "./useLogic";
 
 const Index = ({
   fields,
@@ -11,49 +11,14 @@ const Index = ({
   fieldRightMargin,
   children,
 }) => {
-  const [currentField, setCurrentField] = useState();
-  const { values, setFieldValue, setFieldTouched, submitCount } =
-    useFormikContext();
-
-  const props = useFormikContext();
-
-  useEffect(() => {
-
-
-  }, [props])
-
-
-
-  const onValueChange = (field) => (value) => {
-    setCurrentField(field);
-
-    setFieldValue(field.name, value);
-
-
-    if (typeof field.onValueChange === "function") {
-      field.onValueChange(value);
-    }
-  };
-
-  useEffect(() => {
-    if (
-      currentField &&
-      typeof currentField.validateOnValueChange === "function"
-    ) {
-      if (values[currentField.name]) {
-        setFieldTouched(currentField.name, true);
-      } else if (!submitCount) {
-        setFieldTouched(currentField.name, false);
-      }
-    }
-  }, [values]);
+  const { onValueChange } = useLogic();
 
   return (
     <Form>
       {fields.length > 0 && (
         <>
-          {fields.map((field, i) => (
-            <div key={i}>
+          {fields.map((field) => (
+            <div key={field.toString()}>
               {Array.isArray(field) && (
                 <InlineFieldsContainer>
                   {field.map((f) => (

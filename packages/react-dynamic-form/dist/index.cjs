@@ -191,7 +191,6 @@ var fileYup = ({
   validations
 }) => {
   let schema = Yup.mixed()[isRequired ? "required" : "optional"](fieldIsRequiredMessage).test("fileType", unsupportedFileFormatMessage, (file) => {
-    console.log("\u{1F680} ~ file: fileYup.js ~ line 16 ~ .test ~ file", file);
     if (file) {
       return file && (supportedFormats == null ? void 0 : supportedFormats.includes(file.type));
     }
@@ -656,10 +655,10 @@ var Index5 = ({
   return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_formik3.Form, {
     children: [
       fields.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_jsx_runtime5.Fragment, {
-        children: fields.map((field, i) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", {
+        children: fields.map((field, i) => /* @__PURE__ */(0, import_jsx_runtime5.jsxs)("div", {
           children: [
             Array.isArray(field) && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(InlineFieldsContainer, {
-              children: field.map((f) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", {
+              children: field.map((f) => /* @__PURE__ */(0, import_jsx_runtime5.jsx)("div", {
                 style: { flexGrow: 1, fieldMinWidth: `${fieldMinWidth}` },
                 children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(FormikField_default, {
                   field: f,

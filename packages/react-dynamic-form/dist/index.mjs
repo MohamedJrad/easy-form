@@ -1,23 +1,3 @@
-var __defProp = Object.defineProperty;
-var __defProps = Object.defineProperties;
-var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-
 // src/helpers/adjustFields/index.js
 var inRange = (x, min, max) => (x - min) * (x - max) <= 0;
 var adjustFields = (fields, placement) => {
@@ -28,7 +8,7 @@ var adjustFields = (fields, placement) => {
     placement.forEach((element) => {
       let list = [];
       if (isArray(element)) {
-        if (element.length > 0) {
+        if (element?.length > 0) {
           list = adjustFields(fields, element);
           newFields.push(list);
         }
@@ -65,12 +45,6 @@ var defaultProps = {
       placeholder: "put some text here ..."
     },
     {
-      type: "number",
-      name: "number",
-      label: "Number",
-      placeholder: "put some number here ..."
-    },
-    {
       type: "email",
       name: "email",
       label: "Email ",
@@ -81,16 +55,6 @@ var defaultProps = {
       name: "password",
       label: "Password",
       placeholder: "password"
-    },
-    {
-      type: "date",
-      name: "date",
-      label: "Date Picker"
-    },
-    {
-      type: "time",
-      name: "time",
-      label: "Time Picker"
     },
     {
       type: "file",
@@ -132,7 +96,6 @@ var defaultProps = {
 };
 
 // src/formik/FormikContext/index.jsx
-import React from "react";
 import { Formik } from "formik";
 
 // src/helpers/useInitialValues.js
@@ -162,15 +125,14 @@ var fileYup = ({
   validations
 }) => {
   let schema = Yup.mixed()[isRequired ? "required" : "optional"](fieldIsRequiredMessage).test("fileType", unsupportedFileFormatMessage, (file) => {
-    console.log("\u{1F680} ~ file: fileYup.js ~ line 16 ~ .test ~ file", file);
     if (file) {
-      return file && (supportedFormats == null ? void 0 : supportedFormats.includes(file.type));
+      return supportedFormats?.includes(file.type);
     }
     return true;
   }).test("fileSize", FileSizeIsLargeMessage, (file) => {
     const sizeInBytes = maxFileSizeMB * 1024 * 1024;
     if (file) {
-      return file && file.size <= sizeInBytes;
+      return file.size <= sizeInBytes;
     }
     return true;
   });
@@ -295,8 +257,7 @@ var Index = ({ fields, onSubmit, children, dir }) => {
 var FormikContext_default = Index;
 
 // src/formik/FormikForm/index.jsx
-import React3, { useState as useState2, useEffect as useEffect2 } from "react";
-import { Form, useFormikContext } from "formik";
+import { Form } from "formik";
 
 // src/atoms/SubmitButton/styles.ts
 import styled from "styled-components";
@@ -331,7 +292,7 @@ var Index2 = ({ children }) => {
 };
 var SubmitButton_default = Index2;
 
-// src/formik/FormikField/index.tsx
+// src/formik/FormikField/index.jsx
 import { useState, useEffect } from "react";
 import { Field } from "formik";
 
@@ -547,7 +508,7 @@ var Wrapper = styled2.div`
         `}
 `;
 
-// src/formik/FormikField/index.tsx
+// src/formik/FormikField/index.jsx
 import { jsx as jsx4 } from "react/jsx-runtime";
 var Index4 = ({
   field,
@@ -555,16 +516,17 @@ var Index4 = ({
   fieldRightMargin,
   fieldMinWidth
 }) => {
-  const [dir, setDir] = useState("ltr");
+  const [dir, setDir] = useState < Dir > "ltr";
   useEffect(() => {
     setDir(document.dir || "ltr");
   }, []);
   return /* @__PURE__ */ jsx4(Field, {
     name: field.name,
     children: ({ meta }) => {
-      const modifiedField = __spreadProps(__spreadValues({}, field), {
+      const modifiedField = {
+        ...field,
         onValueChange: onValueChange(field)
-      });
+      };
       return /* @__PURE__ */ jsx4(Wrapper, {
         fieldMinWidth,
         fieldRightMargin,
@@ -603,6 +565,34 @@ var InlineFieldsContainer = styled3.div`
   flex-wrap: wrap;
 `;
 
+// src/formik/FormikForm/useLogic.js
+import { useEffect as useEffect2, useState as useState2 } from "react";
+import { useFormikContext } from "formik";
+var useLogic = () => {
+  const [currentField, setCurrentField] = useState2();
+  const [currentValue, setCurrentValue] = useState2();
+  const { values, setFieldValue, setFieldTouched, submitCount } = useFormikContext();
+  const onValueChange = (field) => (value) => {
+    setCurrentField(field);
+    setCurrentValue(value);
+  };
+  useEffect2(() => {
+    if (currentField && currentValue) {
+      setFieldValue(currentField.name, currentValue);
+    }
+  }, [currentField, currentValue, setFieldValue]);
+  useEffect2(() => {
+    if (currentField && typeof currentField.validateOnValueChange === "function") {
+      if (values[currentField.name]) {
+        setFieldTouched(currentField.name, true);
+      } else if (!submitCount) {
+        setFieldTouched(currentField.name, false);
+      }
+    }
+  }, [values, currentField, setFieldTouched, submitCount]);
+  return { onValueChange };
+};
+
 // src/formik/FormikForm/index.jsx
 import { Fragment, jsx as jsx5, jsxs } from "react/jsx-runtime";
 var Index5 = ({
@@ -612,31 +602,11 @@ var Index5 = ({
   fieldRightMargin,
   children
 }) => {
-  const [currentField, setCurrentField] = useState2();
-  const { values, setFieldValue, setFieldTouched, submitCount } = useFormikContext();
-  const props = useFormikContext();
-  useEffect2(() => {
-  }, [props]);
-  const onValueChange = (field) => (value) => {
-    setCurrentField(field);
-    setFieldValue(field.name, value);
-    if (typeof field.onValueChange === "function") {
-      field.onValueChange(value);
-    }
-  };
-  useEffect2(() => {
-    if (currentField && typeof currentField.validateOnValueChange === "function") {
-      if (values[currentField.name]) {
-        setFieldTouched(currentField.name, true);
-      } else if (!submitCount) {
-        setFieldTouched(currentField.name, false);
-      }
-    }
-  }, [values]);
+  const { onValueChange } = useLogic();
   return /* @__PURE__ */ jsxs(Form, {
     children: [
       fields.length > 0 && /* @__PURE__ */ jsx5(Fragment, {
-        children: fields.map((field, i) => /* @__PURE__ */ jsxs("div", {
+        children: fields.map((field) => /* @__PURE__ */ jsxs("div", {
           children: [
             Array.isArray(field) && /* @__PURE__ */ jsx5(InlineFieldsContainer, {
               children: field.map((f) => /* @__PURE__ */ jsx5("div", {
@@ -656,7 +626,7 @@ var Index5 = ({
               fieldMinWidth
             }, field.name)
           ]
-        }, i))
+        }, field.toString()))
       }),
       children,
       !children && /* @__PURE__ */ jsx5(SubmitButton_default, {
@@ -678,10 +648,10 @@ var Index6 = ({
   fieldRightMargin,
   children
 }) => {
-  if ((fields == null ? void 0 : fields.length) === 0)
+  if (fields?.length === 0)
     return /* @__PURE__ */ jsx6("div", {});
   let adjustedFields = fields;
-  if (placement.length > 0) {
+  if (placement && placement.length > 0) {
     adjustedFields = adjustFields(fields, placement);
   }
   return /* @__PURE__ */ jsx6(FormikContext_default, {

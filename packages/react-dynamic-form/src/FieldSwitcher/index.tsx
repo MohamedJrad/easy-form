@@ -7,8 +7,8 @@ import {
   DatePicker,
   TimePicker,
   Number,
-} from '@med-jrad/react-form-fields'
-import { Props } from './types'
+} from "@med-jrad/react-form-fields";
+import { Props } from "./types";
 
 const Index = ({ field, meta }: Props) => {
   const {
@@ -28,11 +28,11 @@ const Index = ({ field, meta }: Props) => {
     isLoading,
     maxLength,
     isWithRequiredStar,
-  } = field
-  const { error, touched } = meta
+  } = field;
+  const { error, isTouched } = meta;
 
   switch (type) {
-    case 'text':
+    case "text":
       return (
         <Input
           type="text"
@@ -43,16 +43,16 @@ const Index = ({ field, meta }: Props) => {
           isHidden={isHidden}
           isDisabled={isDisabled}
           defaultValue={defaultValue}
-          isTouched={touched}
-          error={error || ''}
+          isTouched={isTouched}
+          error={error || ""}
           onValueChange={onValueChange}
           maxLength={maxLength}
           isWithRequiredStar={isWithRequiredStar}
         />
-      )
-    case 'phone':
-      return <div />
-    case 'textarea':
+      );
+    case "phone":
+      return <div />;
+    case "textarea":
       return (
         <Input
           type="text"
@@ -63,15 +63,15 @@ const Index = ({ field, meta }: Props) => {
           isHidden={isHidden}
           isDisabled={isDisabled}
           defaultValue={defaultValue}
-          isTouched={touched}
-          error={error || ''}
+          isTouched={isTouched}
+          error={error || ""}
           onValueChange={onValueChange}
           isMultiline
           minRows={3}
           isWithRequiredStar={isWithRequiredStar}
         />
-      )
-    case 'email':
+      );
+    case "email":
       return (
         <Input
           type="email"
@@ -82,14 +82,14 @@ const Index = ({ field, meta }: Props) => {
           isHidden={isHidden}
           isDisabled={isDisabled}
           defaultValue={defaultValue}
-          isTouched={touched}
-          error={error || ''}
+          isTouched={isTouched}
+          error={error || ""}
           onValueChange={onValueChange}
           maxLength={maxLength}
           isWithRequiredStar={isWithRequiredStar}
         />
-      )
-    case 'password':
+      );
+    case "password":
       return (
         <Input
           type="password"
@@ -100,14 +100,14 @@ const Index = ({ field, meta }: Props) => {
           isHidden={isHidden}
           isDisabled={isDisabled}
           defaultValue={defaultValue}
-          isTouched={touched}
-          error={error || ''}
+          isTouched={isTouched}
+          error={error || ""}
           onValueChange={onValueChange}
           maxLength={maxLength}
           isWithRequiredStar={isWithRequiredStar}
         />
-      )
-    case 'number':
+      );
+    case "number":
       return (
         <Number
           name={name}
@@ -117,26 +117,26 @@ const Index = ({ field, meta }: Props) => {
           isHidden={isHidden}
           isDisabled={isDisabled}
           defaultValue={defaultValue}
-          isTouched={touched}
-          error={error || ''}
+          isTouched={isTouched}
+          error={error || ""}
           onValueChange={onValueChange}
           maxLength={maxLength}
         />
-      )
-    case 'date':
+      );
+    case "date":
       return (
         <DatePicker
           label={label}
           isDisabled={isDisabled}
           defaultValue={defaultValue}
-          isTouched={touched}
-          error={error || ''}
+          isTouched={isTouched}
+          error={error || ""}
           onValueChange={onValueChange}
           locale={locale}
           dateFormat={dateFormat}
         />
-      )
-    case 'time':
+      );
+    case "time":
       return (
         <TimePicker
           label={label}
@@ -144,12 +144,12 @@ const Index = ({ field, meta }: Props) => {
           isHidden={isHidden}
           isDisabled={isDisabled}
           defaultValue={defaultValue}
-          isTouched={touched}
-          error={error || ''}
+          isTouched={isTouched}
+          error={error || ""}
           onValueChange={onValueChange}
         />
-      )
-    case 'select':
+      );
+    case "select":
       return (
         <Select
           name={name}
@@ -160,13 +160,13 @@ const Index = ({ field, meta }: Props) => {
           isHidden={isHidden}
           isDisabled={isDisabled}
           defaultValue={defaultValue}
-          isTouched={touched}
-          error={error || ''}
+          isTouched={isTouched}
+          error={error || ""}
           onValueChange={onValueChange}
           isWithRequiredStar={isWithRequiredStar}
         />
-      )
-    case 'radioGroup':
+      );
+    case "radioGroup":
       return (
         <RadioGroup
           name={name}
@@ -176,13 +176,13 @@ const Index = ({ field, meta }: Props) => {
           isHidden={isHidden}
           isDisabled={isDisabled}
           defaultValue={defaultValue}
-          isTouched={touched}
-          error={error || ''}
+          isTouched={isTouched}
+          error={error || ""}
           onValueChange={onValueChange}
           isWithRequiredStar={isWithRequiredStar}
         />
-      )
-    case 'checkboxGroup':
+      );
+    case "checkboxGroup":
       return (
         <CheckboxGroup
           name={name}
@@ -192,13 +192,13 @@ const Index = ({ field, meta }: Props) => {
           isHidden={isHidden}
           isDisabled={isDisabled}
           defaultValue={defaultValue}
-          isTouched={touched}
-          error={error || ''}
+          isTouched={isTouched}
+          error={error || ""}
           onValueChange={onValueChange}
           isWithRequiredStar={isWithRequiredStar}
         />
-      )
-    case 'file':
+      );
+    case "file":
       return (
         <FileSelector
           //  name={name}
@@ -208,17 +208,17 @@ const Index = ({ field, meta }: Props) => {
           isHidden={isHidden}
           isDisabled={isDisabled}
           defaultValue={defaultValue}
-          isTouched={touched}
-          error={error || ''}
+          isTouched={isTouched}
+          error={error || ""}
           onValueChange={onValueChange}
           onEyeIconClicked={onEyeIconClicked}
           isLoading={isLoading}
           isWithRequiredStar={isWithRequiredStar}
         />
-      )
+      );
     default:
-      return <div />
+      return <div />;
   }
-}
+};
 
-export default Index
+export default Index;

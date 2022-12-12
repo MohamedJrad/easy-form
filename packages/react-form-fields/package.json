@@ -2,7 +2,7 @@
   "name": "@med-jrad/react-form-fields",
   "private": false,
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -64,8 +64,7 @@
     "eslint-plugin-react": "^7.31.4",
     "eslint-plugin-storybook": "^0.6.4",
     "eslint-plugin-testing-library": "^5.9.1",
-    "tsup": "^6.5.0",
-    "@med-jrad/tsconfig": "*"
+    "tsup": "^6.5.0"
   },
   "publishConfig": {
     "access": "public",

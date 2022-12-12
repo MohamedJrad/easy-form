@@ -1,4 +1,3 @@
-import React from "react";
 import MenuItem from "@mui/material/MenuItem";
 import { ErrorMessage, FieldContainer, FieldLabel } from "../../atoms";
 import { useLogic } from "./useLogic";
@@ -24,6 +23,7 @@ const Index = ({
     onValueChange,
     defaultValue,
   });
+
   return (
     <FieldContainer isHidden={isHidden}>
       <FieldLabel
@@ -47,7 +47,7 @@ const Index = ({
         error={isTouched && !!error}
       >
         {placeholder && (
-          <MenuItem value="none" disabled>
+          <MenuItem value="" disabled>
             {placeholder}
           </MenuItem>
         )}
