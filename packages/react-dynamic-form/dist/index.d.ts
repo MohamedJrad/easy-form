@@ -33,41 +33,46 @@ type Field = {
     onEyeIconClicked?: () => void;
 };
 
+type Schema = {
+    fields: Field[];
+    onSubmit: (e: unknown) => void;
+    submitButtonLabel: string;
+    placement: number[] | number[][];
+    fieldMinWidth: number;
+    fieldRightMargin: number;
+};
+
 interface Props {
-    fields?: Field[];
-    onSubmit?: (e: unknown) => void;
-    submitButtonLabel?: string;
-    placement?: number[] | number[][];
-    fieldMinWidth?: number;
-    fieldRightMargin?: number;
+    schema: Schema;
     children?: ReactNode;
 }
 
 declare const Index: {
-    ({ fields, onSubmit, submitButtonLabel, placement, fieldMinWidth, fieldRightMargin, children, }: Props): JSX.Element;
+    ({ schema, children }: Props): JSX.Element;
     defaultProps: {
-        submitButtonLabel: string;
-        resetButtonLabel: string;
-        fieldMinWidth: number;
-        fieldRightMargin: number;
-        placement: never[];
-        theme: {};
-        fields: ({
-            type: string;
-            name: string;
-            label: string;
-            placeholder: string;
-            options?: undefined;
-        } | {
-            type: string;
-            name: string;
-            label: string;
-            options: {
-                value: string;
+        schema: {
+            submitButtonLabel: string;
+            resetButtonLabel: string;
+            fieldMinWidth: number;
+            fieldRightMargin: number;
+            placement: never[];
+            fields: ({
+                type: string;
+                name: string;
                 label: string;
-            }[];
-            placeholder?: undefined;
-        })[];
+                placeholder: string;
+                options?: undefined;
+            } | {
+                type: string;
+                name: string;
+                label: string;
+                options: {
+                    value: string;
+                    label: string;
+                }[];
+                placeholder?: undefined;
+            })[];
+        };
     };
 };
 

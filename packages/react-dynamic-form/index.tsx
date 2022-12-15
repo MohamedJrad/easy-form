@@ -1,3 +1,3 @@
-import DynamicForm from "./src/DynamicForm";
+import DynamicForm from './src/DynamicForm'
 
-export default DynamicForm;
+export default DynamicForm

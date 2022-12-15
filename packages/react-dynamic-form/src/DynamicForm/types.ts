@@ -1,13 +1,7 @@
-import { ReactNode } from "react";
-import { Field } from "../types";
+import { ReactNode } from 'react'
+import { Schema } from '../types/Schema'
 
 export interface Props {
-  fields?: Field[];
-  onSubmit?: (e: unknown) => void;
-  submitButtonLabel?: string;
-  placement?: number[] | number[][];
-  fieldMinWidth?: number;
-  fieldRightMargin?: number;
-  children?: ReactNode;
-  // theme,
+  schema: Schema
+  children?: ReactNode
 }

@@ -1,4 +1,4 @@
-// src/helpers/adjustFields/index.js
+// src/helpers/adjustFields/index.ts
 var inRange = (x, min, max) => (x - min) * (x - max) <= 0;
 var adjustFields = (fields, placement) => {
   const isArray = (e) => Array.isArray(e);
@@ -25,80 +25,81 @@ var adjustFields = (fields, placement) => {
 
 // src/DynamicForm/defaultProps.ts
 var defaultProps = {
-  submitButtonLabel: "Submit",
-  resetButtonLabel: "\u0625\u0644\u063A\u0627\u0621",
-  fieldMinWidth: 300,
-  fieldRightMargin: 10,
-  placement: [],
-  theme: {},
-  fields: [
-    {
-      type: "text",
-      name: "text",
-      label: "Text Input",
-      placeholder: "put some text here ..."
-    },
-    {
-      type: "textarea",
-      name: "textarea",
-      label: "Text Area",
-      placeholder: "put some text here ..."
-    },
-    {
-      type: "email",
-      name: "email",
-      label: "Email ",
-      placeholder: "ex:helloworld@gmail.com"
-    },
-    {
-      type: "password",
-      name: "password",
-      label: "Password",
-      placeholder: "password"
-    },
-    {
-      type: "file",
-      name: "file",
-      label: "File Selector",
-      placeholder: "drag and drop file here ..."
-    },
-    {
-      type: "select",
-      name: "select",
-      label: "Select",
-      options: [
-        { value: "op1", label: "Option 1" },
-        { value: "op2", label: "Option 2" },
-        { value: "op3", label: "Option 3" }
-      ]
-    },
-    {
-      type: "radioGroup",
-      name: "radioGroup",
-      label: "Radio Group",
-      options: [
-        { value: "op1", label: "Option 1" },
-        { value: "op2", label: "Option 2" },
-        { value: "op3", label: "Option 3" }
-      ]
-    },
-    {
-      type: "checkboxGroup",
-      name: "checkboxGroup",
-      label: "Checkbox Group",
-      options: [
-        { value: "op1", label: "Option 1" },
-        { value: "op2", label: "Option 2" },
-        { value: "op3", label: "Option 3" }
-      ]
-    }
-  ]
+  schema: {
+    submitButtonLabel: "Submit",
+    resetButtonLabel: "Reset",
+    fieldMinWidth: 300,
+    fieldRightMargin: 10,
+    placement: [],
+    fields: [
+      {
+        type: "text",
+        name: "text",
+        label: "Text Input",
+        placeholder: "put some text here ..."
+      },
+      {
+        type: "textarea",
+        name: "textarea",
+        label: "Text Area",
+        placeholder: "put some text here ..."
+      },
+      {
+        type: "email",
+        name: "email",
+        label: "Email ",
+        placeholder: "ex:helloworld@gmail.com"
+      },
+      {
+        type: "password",
+        name: "password",
+        label: "Password",
+        placeholder: "password"
+      },
+      {
+        type: "file",
+        name: "file",
+        label: "File Selector",
+        placeholder: "drag and drop file here ..."
+      },
+      {
+        type: "select",
+        name: "select",
+        label: "Select",
+        options: [
+          { value: "op1", label: "Option 1" },
+          { value: "op2", label: "Option 2" },
+          { value: "op3", label: "Option 3" }
+        ]
+      },
+      {
+        type: "radioGroup",
+        name: "radioGroup",
+        label: "Radio Group",
+        options: [
+          { value: "op1", label: "Option 1" },
+          { value: "op2", label: "Option 2" },
+          { value: "op3", label: "Option 3" }
+        ]
+      },
+      {
+        type: "checkboxGroup",
+        name: "checkboxGroup",
+        label: "Checkbox Group",
+        options: [
+          { value: "op1", label: "Option 1" },
+          { value: "op2", label: "Option 2" },
+          { value: "op3", label: "Option 3" }
+        ]
+      }
+    ]
+  }
 };
 
-// src/formik/FormikContext/index.jsx
+// src/formik/FormikContext/index.tsx
 import { Formik } from "formik";
 
-// src/helpers/useInitialValues.js
+// src/helpers/useInitialValues.ts
 var useInitialValues = (fields) => {
   if (fields.length > 0) {
     const initialValues = {};
@@ -110,10 +111,10 @@ var useInitialValues = (fields) => {
   return {};
 };
 
-// src/helpers/useValidationSchema.js
+// src/helpers/useValidationSchema.ts
 import * as Yup4 from "yup";
 
-// src/helpers/yups/fileYup.js
+// src/helpers/yups/fileYup.ts
 import * as Yup from "yup";
 var fileYup = ({
   isRequired,
@@ -145,7 +146,7 @@ var fileYup = ({
   return schema;
 };
 
-// src/helpers/yups/stringYup.js
+// src/helpers/yups/stringYup.ts
 import * as Yup2 from "yup";
 var stringYup = ({
   isRequired,
@@ -164,7 +165,7 @@ var stringYup = ({
   return schema;
 };
 
-// src/helpers/yups/arrayOfStringsYup.js
+// src/helpers/yups/arrayOfStringsYup.ts
 import * as Yup3 from "yup";
 var arrayOfStringsYup = ({
   required,
@@ -181,7 +182,7 @@ var arrayOfStringsYup = ({
   return schema;
 };
 
-// src/helpers/useValidationSchema.js
+// src/helpers/useValidationSchema.ts
 var useValidationSchema = (fields) => {
   const validationObject = {};
   if (fields.length > 0) {
@@ -241,7 +242,7 @@ var useValidationSchema = (fields) => {
   return Yup4.object();
 };
 
-// src/formik/FormikContext/index.jsx
+// src/formik/FormikContext/index.tsx
 import { jsx } from "react/jsx-runtime";
 var Index = ({ fields, onSubmit, children, dir }) => {
   const initialValues = useInitialValues(fields);
@@ -256,7 +257,7 @@ var Index = ({ fields, onSubmit, children, dir }) => {
 };
 var FormikContext_default = Index;
 
-// src/formik/FormikForm/index.jsx
+// src/formik/FormikForm/index.tsx
 import { Form } from "formik";
 
 // src/atoms/SubmitButton/styles.ts
@@ -292,8 +293,7 @@ var Index2 = ({ children }) => {
 };
 var SubmitButton_default = Index2;
 
-// src/formik/FormikField/index.jsx
-import { useState, useEffect } from "react";
+// src/formik/FormikField/index.tsx
 import { Field } from "formik";
 
 // src/FieldSwitcher/index.tsx
@@ -327,7 +327,7 @@ var Index3 = ({ field, meta }) => {
     maxLength,
     isWithRequiredStar
   } = field;
-  const { error, touched } = meta;
+  const { error, isTouched } = meta;
   switch (type) {
     case "text":
       return /* @__PURE__ */ jsx3(Input, {
@@ -339,7 +339,7 @@ var Index3 = ({ field, meta }) => {
         isHidden,
         isDisabled,
         defaultValue,
-        isTouched: touched,
+        isTouched,
         error: error || "",
         onValueChange,
         maxLength,
@@ -357,7 +357,7 @@ var Index3 = ({ field, meta }) => {
         isHidden,
         isDisabled,
         defaultValue,
-        isTouched: touched,
+        isTouched,
         error: error || "",
         onValueChange,
         isMultiline: true,
@@ -374,7 +374,7 @@ var Index3 = ({ field, meta }) => {
         isHidden,
         isDisabled,
         defaultValue,
-        isTouched: touched,
+        isTouched,
         error: error || "",
         onValueChange,
         maxLength,
@@ -390,7 +390,7 @@ var Index3 = ({ field, meta }) => {
         isHidden,
         isDisabled,
         defaultValue,
-        isTouched: touched,
+        isTouched,
         error: error || "",
         onValueChange,
         maxLength,
@@ -405,7 +405,7 @@ var Index3 = ({ field, meta }) => {
         isHidden,
         isDisabled,
         defaultValue,
-        isTouched: touched,
+        isTouched,
         error: error || "",
         onValueChange,
         maxLength
@@ -415,7 +415,7 @@ var Index3 = ({ field, meta }) => {
         label,
         isDisabled,
         defaultValue,
-        isTouched: touched,
+        isTouched,
         error: error || "",
         onValueChange,
         locale,
@@ -428,7 +428,7 @@ var Index3 = ({ field, meta }) => {
         isHidden,
         isDisabled,
         defaultValue,
-        isTouched: touched,
+        isTouched,
         error: error || "",
         onValueChange
       });
@@ -442,7 +442,7 @@ var Index3 = ({ field, meta }) => {
         isHidden,
         isDisabled,
         defaultValue,
-        isTouched: touched,
+        isTouched,
         error: error || "",
         onValueChange,
         isWithRequiredStar
@@ -456,7 +456,7 @@ var Index3 = ({ field, meta }) => {
         isHidden,
         isDisabled,
         defaultValue,
-        isTouched: touched,
+        isTouched,
         error: error || "",
         onValueChange,
         isWithRequiredStar
@@ -470,7 +470,7 @@ var Index3 = ({ field, meta }) => {
         isHidden,
         isDisabled,
         defaultValue,
-        isTouched: touched,
+        isTouched,
         error: error || "",
         onValueChange,
         isWithRequiredStar
@@ -483,7 +483,7 @@ var Index3 = ({ field, meta }) => {
         isHidden,
         isDisabled,
         defaultValue,
-        isTouched: touched,
+        isTouched,
         error: error || "",
         onValueChange,
         onEyeIconClicked,
@@ -508,7 +508,40 @@ var Wrapper = styled2.div`
         `}
 `;
 
-// src/formik/FormikField/index.jsx
+// src/formik/FormikField/useLogic.ts
+import { useEffect, useState } from "react";
+import { useFormikContext } from "formik";
+var useLogic = (field, onValueChange) => {
+  const [dir, setDir] = useState("ltr");
+  const [isTouched, setIsTouched] = useState(false);
+  const [error, setError] = useState("");
+  const [meta, setMeta] = useState({ error: "", isTouched: false });
+  const { errors, touched } = useFormikContext();
+  const modifiedField = {
+    ...field,
+    onValueChange
+  };
+  useEffect(() => {
+    setDir(document.dir || "ltr");
+  }, [setDir]);
+  useEffect(() => {
+    const name = field.name;
+    setError(errors[name]);
+  }, [errors, setError, field]);
+  useEffect(() => {
+    const name = field.name;
+    setIsTouched(touched[name]);
+  }, [touched, setIsTouched, field]);
+  useEffect(() => {
+    setMeta({
+      isTouched,
+      error
+    });
+  }, [isTouched, error, setMeta]);
+  return { meta, dir, modifiedField };
+};
+
+// src/formik/FormikField/index.tsx
 import { jsx as jsx4 } from "react/jsx-runtime";
 var Index4 = ({
   field,
@@ -516,27 +549,18 @@ var Index4 = ({
   fieldRightMargin,
   fieldMinWidth
 }) => {
-  const [dir, setDir] = useState < Dir > "ltr";
-  useEffect(() => {
-    setDir(document.dir || "ltr");
-  }, []);
+  const { meta, dir, modifiedField } = useLogic(field, onValueChange);
   return /* @__PURE__ */ jsx4(Field, {
     name: field.name,
-    children: ({ meta }) => {
-      const modifiedField = {
-        ...field,
-        onValueChange: onValueChange(field)
-      };
-      return /* @__PURE__ */ jsx4(Wrapper, {
-        fieldMinWidth,
-        fieldRightMargin,
-        dir,
-        children: /* @__PURE__ */ jsx4(FieldSwitcher_default, {
-          field: modifiedField,
-          meta
-        })
-      });
-    }
+    children: () => /* @__PURE__ */ jsx4(Wrapper, {
+      fieldMinWidth,
+      fieldRightMargin,
+      dir,
+      children: /* @__PURE__ */ jsx4(FieldSwitcher_default, {
+        field: modifiedField,
+        meta
+      })
+    })
   });
 };
 var FormikField_default = Index4;
@@ -565,13 +589,13 @@ var InlineFieldsContainer = styled3.div`
   flex-wrap: wrap;
 `;
 
-// src/formik/FormikForm/useLogic.js
+// src/formik/FormikForm/useLogic.ts
 import { useEffect as useEffect2, useState as useState2 } from "react";
-import { useFormikContext } from "formik";
-var useLogic = () => {
+import { useFormikContext as useFormikContext2 } from "formik";
+var useLogic2 = () => {
   const [currentField, setCurrentField] = useState2();
   const [currentValue, setCurrentValue] = useState2();
-  const { values, setFieldValue, setFieldTouched, submitCount } = useFormikContext();
+  const { values, setFieldValue, setFieldTouched, submitCount } = useFormikContext2();
   const onValueChange = (field) => (value) => {
     setCurrentField(field);
     setCurrentValue(value);
@@ -593,7 +617,7 @@ var useLogic = () => {
   return { onValueChange };
 };
 
-// src/formik/FormikForm/index.jsx
+// src/formik/FormikForm/index.tsx
 import { Fragment, jsx as jsx5, jsxs } from "react/jsx-runtime";
 var Index5 = ({
   fields,
@@ -602,7 +626,7 @@ var Index5 = ({
   fieldRightMargin,
   children
 }) => {
-  const { onValueChange } = useLogic();
+  const { onValueChange } = useLogic2();
   return /* @__PURE__ */ jsxs(Form, {
     children: [
       fields.length > 0 && /* @__PURE__ */ jsx5(Fragment, {
@@ -639,15 +663,15 @@ var FormikForm_default = Index5;
 
 // src/DynamicForm/DynamicForm.tsx
 import { jsx as jsx6 } from "react/jsx-runtime";
-var Index6 = ({
-  fields,
-  onSubmit,
-  submitButtonLabel,
-  placement,
-  fieldMinWidth,
-  fieldRightMargin,
-  children
-}) => {
+var Index6 = ({ schema, children }) => {
+  const {
+    fields,
+    placement,
+    onSubmit,
+    fieldMinWidth,
+    fieldRightMargin,
+    submitButtonLabel
+  } = schema;
   if (fields?.length === 0)
     return /* @__PURE__ */ jsx6("div", {});
   let adjustedFields = fields;
