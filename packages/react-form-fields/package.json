@@ -2,7 +2,7 @@
   "name": "@med-jrad/react-form-fields",
   "private": false,
   "license": "MIT",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
