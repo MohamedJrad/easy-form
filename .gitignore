@@ -13,8 +13,18 @@ coverage
 out/
 build
 
+
+# testing
+/coverage
+
+# component build
+/dist
+
 # misc
 .DS_Store
+
+
+
 *.pem
 
 # debug

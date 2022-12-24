@@ -1,13 +1,14 @@
 {
   "name": "easy-form",
   "version": "0.0.1",
-    "license": "MIT",
-  "private": true,
+  "license": "MIT",
+  "private": false,
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
+    "publish-packages": "turbo run build  && changeset version && changeset publish",
     "build": "turbo run build",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "lint": "turbo run lint",
@@ -16,9 +17,9 @@
     "commit": "git add . && cz",
     "pre-commit": "turbo run lint",
     "push": "git push origin",
-    "pull":"git pull origin",
+    "pull": "git pull origin",
     "branch": "git checkout -b",
-    "prepare": "husky install",
+    "prepare": "husky install && changeset init ",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
@@ -33,7 +34,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.4",
-     "prettier": "^2.7.1",
+    "prettier": "^2.7.1",
     "turbo": "latest"
   },
   "engines": {

@@ -2,7 +2,7 @@
   "name": "@med-jrad/react-dynamic-form",
   "private": false,
   "license": "MIT",
-  "version": "0.0.4",
+  "version": "0.0.46",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
